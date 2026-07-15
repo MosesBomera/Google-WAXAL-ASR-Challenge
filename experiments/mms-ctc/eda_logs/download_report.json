@@ -1,0 +1,104 @@
+[
+  {
+    "language": "lin",
+    "split": "train",
+    "wanted": 14400,
+    "saved": 14400,
+    "missing": 0,
+    "hours": 71.91,
+    "duration_s": {
+      "n": 14400,
+      "min": 1.008,
+      "p50": 17.616,
+      "p90": 24.984,
+      "p99": 33.264,
+      "max": 37.296,
+      "mean": 17.977160455729166
+    }
+  },
+  {
+    "language": "lug",
+    "split": "train",
+    "wanted": 5455,
+    "saved": 5455,
+    "missing": 0,
+    "hours": 37.29,
+    "duration_s": {
+      "n": 5455,
+      "min": 4.5,
+      "p50": 22.284,
+      "p90": 37.296,
+      "p99": 44.1,
+      "max": 46.044,
+      "mean": 24.606504857928506
+    }
+  },
+  {
+    "language": "sna",
+    "split": "train",
+    "wanted": 14109,
+    "saved": 14109,
+    "missing": 0,
+    "hours": 79.73,
+    "duration_s": {
+      "n": 14109,
+      "min": 1.008,
+      "p50": 19.704,
+      "p90": 26.976,
+      "p99": 32.736,
+      "max": 35.904,
+      "mean": 20.343431984903255
+    }
+  },
+  {
+    "language": "lin",
+    "split": "validation",
+    "wanted": 1844,
+    "saved": 1844,
+    "missing": 0,
+    "hours": 9.28,
+    "duration_s": {
+      "n": 1844,
+      "min": 1.008,
+      "p50": 17.616,
+      "p90": 25.056,
+      "p99": 33.065039999999996,
+      "max": 35.544,
+      "mean": 18.112794671908897
+    }
+  },
+  {
+    "language": "lug",
+    "split": "validation",
+    "wanted": 664,
+    "saved": 664,
+    "missing": 0,
+    "hours": 4.58,
+    "duration_s": {
+      "n": 664,
+      "min": 5.58,
+      "p50": 22.356,
+      "p90": 37.814400000000006,
+      "p99": 44.1,
+      "max": 44.928,
+      "mean": 24.81798795180723
+    }
+  },
+  {
+    "language": "sna",
+    "split": "validation",
+    "wanted": 1727,
+    "saved": 1727,
+    "missing": 0,
+    "hours": 9.71,
+    "duration_s": {
+      "n": 1727,
+      "min": 1.008,
+      "p50": 19.776,
+      "p90": 26.875200000000007,
+      "p99": 32.544,
+      "max": 35.856,
+      "mean": 20.241686160972787
+    }
+  }
+]

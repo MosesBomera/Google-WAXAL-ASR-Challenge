@@ -1,0 +1,12 @@
+{
+  "dataset_id": "google/WaxalNLP",
+  "train_csv": "/workspace/data/Train.csv",
+  "languages": null,
+  "sample_rate": 16000,
+  "output_dir": "/workspace/prepared/waxal-raw",
+  "metadata_out": "/workspace/metadata/waxal_clip_metadata.csv",
+  "max_examples_per_language": null,
+  "skip_existing": true,
+  "hf_token": null,
+  "progress_every": 500
+}

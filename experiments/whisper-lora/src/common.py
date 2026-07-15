@@ -1,10 +1,10 @@
-"""Shared helpers for experiment-01 / v1 — Whisper-large-v3 LoRA fine-tuning.
+"""Shared helpers for whisper-lora / v1 — Whisper-large-v3 LoRA fine-tuning.
 
 Kept dependency-light at import time (torch/datasets/jiwer/librosa are imported
 lazily inside functions) so `--help` on any script stays fast.
 
 This module also owns the three cross-cutting concerns v1 adds on top of the
-experiment-00 scripts:
+gemma3n-baseline scripts:
   * text normalization applied identically to training labels and to scoring,
   * per-language WER/CER (the competition scores Lingala/Shona/Luganda),
   * persistent logging to disk (a file log + a JSONL metrics stream) so nothing
@@ -33,7 +33,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 
 
 def repo_root() -> Path:
-    """Repo root when running from the local checkout (notebooks/experiment-01/v1/
+    """Repo root when running from the local checkout (experiments/whisper-lora/src/
     -> parents[3]); on a flat vast.ai layout there is no such root, so fall back
     to the script directory instead of raising."""
     p = Path(__file__).resolve()
@@ -71,7 +71,7 @@ def artifacts_dir() -> Path:
 # Whisper's tokenizer has language tokens for Lingala (ln) and Shona (sn) but
 # NOT Luganda (lg). We train Luganda under the closest supported Bantu token,
 # Swahili (sw). Fine-tuning overwrites the token's original meaning, so the
-# decoder learns to emit Luganda orthography under it. See docs/plans §8.
+# decoder learns to emit Luganda orthography under it. See plan-whisper-lora.md §8.
 LANGUAGE_TO_WHISPER: dict[str, str] = {
     "lin": "lingala",
     "sna": "shona",
@@ -275,7 +275,7 @@ def per_language_metrics(
 
     `combined` (macro) is our checkpoint-selection metric: it weights every
     language equally so Luganda can't be ignored. `combined_micro` mirrors a
-    pooled leaderboard; we log both and compare to the board (docs/plans §6a).
+    pooled leaderboard; we log both and compare to the board (plan-whisper-lora.md §6a).
     """
     import jiwer
 
@@ -333,7 +333,7 @@ def format_metrics(m: Mapping[str, float]) -> str:
 def build_language_balanced_indices(
     languages: list[str], alpha: float, seed: int
 ) -> tuple[list[int], dict[str, int]]:
-    """Temperature sampling: draw language l with prob ∝ p_l^alpha (docs/plans §6a).
+    """Temperature sampling: draw language l with prob ∝ p_l^alpha (plan-whisper-lora.md §6a).
 
     alpha=1 -> natural (imbalanced), alpha=0 -> uniform per language,
     alpha≈0.5 -> the multilingual-ASR sweet spot (upsamples Luganda ~1.7x).

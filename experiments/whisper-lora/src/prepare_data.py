@@ -3,7 +3,7 @@ Train.csv (lin/sna/lug), decodes + resamples to 16 kHz, and saves it to disk
 ONE (language, split) chunk at a time so the RAM/page-cache footprint never
 grows past a single chunk.
 
-This is the experiment-00 preparer, unchanged in spirit — audio is stored
+This is the gemma3n-baseline preparer, unchanged in spirit — audio is stored
 decoded (not the chat/label structure), so train.py builds Whisper features and
 labels cheaply at collate time and audio isn't duplicated on disk.
 

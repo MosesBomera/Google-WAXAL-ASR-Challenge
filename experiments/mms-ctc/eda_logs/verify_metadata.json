@@ -1,0 +1,250 @@
+{
+  "per_language": {
+    "lin": {
+      "fields": [
+        "audio",
+        "gender",
+        "id",
+        "language",
+        "speaker_id",
+        "transcription"
+      ],
+      "features": {
+        "id": "Value('string')",
+        "speaker_id": "Value('string')",
+        "transcription": "Value('string')",
+        "language": "Value('string')",
+        "gender": "Value('string')",
+        "audio": "Audio(sampling_rate=None, decode=True, num_channels=None, stream_index=None)"
+      },
+      "speaker_candidates": [
+        "gender",
+        "language",
+        "speaker_id"
+      ],
+      "stats": {
+        "gender": {
+          "distinct_in_sample": 4,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "Female",
+              112
+            ],
+            [
+              "Male",
+              80
+            ],
+            [
+              "male",
+              7
+            ],
+            [
+              "female",
+              1
+            ]
+          ]
+        },
+        "language": {
+          "distinct_in_sample": 1,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "lin",
+              200
+            ]
+          ]
+        },
+        "speaker_id": {
+          "distinct_in_sample": 51,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "OWDZrFDhl8g2R3lZ7encCuWVrFz1",
+              20
+            ],
+            [
+              "4rz2JZIZrUfKaxu5d9zdgrT2B1v1",
+              18
+            ],
+            [
+              "BJJZeZLdZkX10jOSnFR1yUy6JVC3",
+              10
+            ],
+            [
+              "S4RKuQBSBtUaUz9d3SxD8HkOIep2",
+              8
+            ],
+            [
+              "MBLCohydbGXVbVl62lOnV8yqvp72",
+              8
+            ]
+          ]
+        }
+      }
+    },
+    "sna": {
+      "fields": [
+        "audio",
+        "gender",
+        "id",
+        "language",
+        "speaker_id",
+        "transcription"
+      ],
+      "features": {
+        "id": "Value('string')",
+        "speaker_id": "Value('string')",
+        "transcription": "Value('string')",
+        "language": "Value('string')",
+        "gender": "Value('string')",
+        "audio": "Audio(sampling_rate=None, decode=True, num_channels=None, stream_index=None)"
+      },
+      "speaker_candidates": [
+        "gender",
+        "language",
+        "speaker_id"
+      ],
+      "stats": {
+        "gender": {
+          "distinct_in_sample": 4,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "Female",
+              116
+            ],
+            [
+              "Male",
+              69
+            ],
+            [
+              "male",
+              12
+            ],
+            [
+              "female",
+              3
+            ]
+          ]
+        },
+        "language": {
+          "distinct_in_sample": 1,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "sna",
+              200
+            ]
+          ]
+        },
+        "speaker_id": {
+          "distinct_in_sample": 59,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "7erMyYrd9qflZJjN1wOPrEgigQu2",
+              20
+            ],
+            [
+              "7UbpWlepR6OHT8S5tcibbkcQWOC2",
+              14
+            ],
+            [
+              "1PHOsx2JIpUU4lMLgTd3ssjITjf1",
+              11
+            ],
+            [
+              "T33w3KIsJJYMb9tmz2XxSYlgpcA2",
+              11
+            ],
+            [
+              "2Eud8lyLlsMcciYhmlkwVRtBwi82",
+              10
+            ]
+          ]
+        }
+      }
+    },
+    "lug": {
+      "fields": [
+        "audio",
+        "gender",
+        "id",
+        "language",
+        "speaker_id",
+        "transcription"
+      ],
+      "features": {
+        "id": "Value('string')",
+        "speaker_id": "Value('string')",
+        "transcription": "Value('string')",
+        "language": "Value('string')",
+        "gender": "Value('string')",
+        "audio": "Audio(sampling_rate=None, decode=True, num_channels=None, stream_index=None)"
+      },
+      "speaker_candidates": [
+        "gender",
+        "language",
+        "speaker_id"
+      ],
+      "stats": {
+        "gender": {
+          "distinct_in_sample": 3,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "Male",
+              102
+            ],
+            [
+              "Female",
+              96
+            ],
+            [
+              "",
+              2
+            ]
+          ]
+        },
+        "language": {
+          "distinct_in_sample": 1,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "lug",
+              200
+            ]
+          ]
+        },
+        "speaker_id": {
+          "distinct_in_sample": 137,
+          "sample_size": 200,
+          "most_common": [
+            [
+              "666",
+              5
+            ],
+            [
+              "466",
+              4
+            ],
+            [
+              "433",
+              4
+            ],
+            [
+              "921",
+              4
+            ],
+            [
+              "1309",
+              3
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "verdict": "SPEAKER METADATA AVAILABLE — we can build a speaker-disjoint validation split (re-run prepare_data.py saving the field, or join by id)."
+}

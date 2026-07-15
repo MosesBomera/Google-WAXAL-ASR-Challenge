@@ -1,0 +1,133 @@
+{
+  "split": "train",
+  "short_threshold_s": 1.5,
+  "per_language": {
+    "lin": {
+      "n_suspect": 930,
+      "distinct_durations": 2,
+      "samples_checked": [
+        {
+          "id": "lin_24754",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.00429,
+          "n_words_train_csv": 25,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Ndaku oyo ezali na bosoto mpo bazali kosala ngo likolo ezali na mwinda misatu ekangami esi"
+        },
+        {
+          "id": "lin_24796",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.00421,
+          "n_words_train_csv": 18,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Mobali afandi alati kanzaku,ya langi ya motane na singa ya kingo ya mayaka alati ekoti ya "
+        },
+        {
+          "id": "lin_32211",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.01062,
+          "n_words_train_csv": 29,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Mesa ezali na ba nzete ya mabaya na ba kiti ezali na ba nzete ya mabaya na likolo batie ba"
+        },
+        {
+          "id": "lin_69411",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.006,
+          "n_words_train_csv": 12,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "awa namoni awa eza mutuka pembeni ya nzela na langi ya pembe,kaki"
+        },
+        {
+          "id": "lin_69462",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.00182,
+          "n_words_train_csv": 22,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Mwana muasi atali na se akangisi suki ya minene,na liboso ba kati ye ba kitisi suki ba kat"
+        }
+      ],
+      "verdict": "CORPUS CORRUPTION — the Hub itself serves ~1 s of audio for a full-length transcript; our decode is faithful. Safe to drop these clips. The 1 s contains real speech (audio truncated mid-utterance)."
+    },
+    "sna": {
+      "n_suspect": 310,
+      "distinct_durations": 2,
+      "samples_checked": [
+        {
+          "id": "sna_60964",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.13896,
+          "n_words_train_csv": 28,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Murume akasenga bhegi kumusana , arikufamba mugwagwa uye parutivi rwake panevanhuwo variku"
+        },
+        {
+          "id": "sna_51513",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.09393,
+          "n_words_train_csv": 19,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Mufananidzo wemukadzi akarukwa mumusoro nevhunzi rekuwedzerera. Uye anoratidza kuti akaisa"
+        },
+        {
+          "id": "sna_51548",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.08823,
+          "n_words_train_csv": 21,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Muti wakapfumvutira une mashizha akasvibira kwazvo anoratidza kuti anowana mvura yakawanda"
+        },
+        {
+          "id": "sna_94191",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.07641,
+          "n_words_train_csv": 18,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Mwana akagerwa pangi akabviswa bvudzi rese parutivi. Pakati bvudzi rakakura uye rakasvibir"
+        },
+        {
+          "id": "sna_51374",
+          "hub_native_sr": 48000,
+          "hub_n_samples": 48384,
+          "hub_duration_s": 1.008,
+          "our_duration_s": 1.008,
+          "rms_energy": 0.02431,
+          "n_words_train_csv": 19,
+          "hub_text_matches_train_csv": true,
+          "text_preview": "Mabhenguru masere ekushongedza mawoko. Mabhenguru aya akagadzIrwa nesimbi yesirivheri uye "
+        }
+      ],
+      "verdict": "CORPUS CORRUPTION — the Hub itself serves ~1 s of audio for a full-length transcript; our decode is faithful. Safe to drop these clips. The 1 s contains real speech (audio truncated mid-utterance)."
+    },
+    "lug": {
+      "n_suspect": 0
+    }
+  }
+}

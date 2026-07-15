@@ -1,12 +1,12 @@
-# experiment-01 / v1 — Whisper-large-v3 LoRA (the plan's "S1")
+# whisper-lora / v1 — Whisper-large-v3 LoRA (the plan's "S1")
 
-First version of experiment-01. Fine-tunes `openai/whisper-large-v3` with LoRA
+First version of whisper-lora. Fine-tunes `openai/whisper-large-v3` with LoRA
 on Lingala + Shona + Luganda, jointly, and selects checkpoints by **WER/CER**.
-See [`docs/plans/experiment-01.md`](../../../docs/plans/experiment-01.md) for the full rationale.
+See [`plan-whisper-lora.md`](plan-whisper-lora.md) for the full rationale.
 
-> **Naming:** every experiment is a version of experiment-01. This is **v1**.
+> **Naming:** every experiment is a version of whisper-lora. This is **v1**.
 > Later ideas (augmentation, label cleaning, pseudo-labeling, soup) become
-> v2, v3, … each self-contained under `notebooks/experiment-01/vN/`.
+> v2, v3, … each self-contained under `experiments/whisper-lora/vN/`.
 
 ## Files
 | File | Role |
@@ -16,7 +16,7 @@ See [`docs/plans/experiment-01.md`](../../../docs/plans/experiment-01.md) for th
 | `train.py` | Whisper-large-v3 LoRA training (Seq2SeqTrainer, `predict_with_generate`, WER-based checkpointing). |
 | `infer.py` | Per-language evaluation on the test split + `submission.csv` generation, with hallucination guards. |
 
-## What v1 does differently from experiment-00
+## What v1 does differently from gemma3n-baseline
 - **Whisper-large-v3** (speech model) instead of Gemma 3n.
 - **No truncation:** `max_target_length` / `generation_max_length` = 256 (was 64/128).
 - **LoRA r=32 / α=32** (ratio ≈1.0 to avoid Whisper-LoRA hallucinations), on encoder **and** decoder attention + MLP.
@@ -30,7 +30,7 @@ The scripts and the `data/` folder are siblings; the CSVs sit directly in `data/
 ```
 <workdir>/
   data/            Train.csv, Test.csv, SampleSubmission.csv   (labels/ids; audio is streamed from HF)
-  common.py  prepare_data.py  train.py  infer.py  README.md
+  src/common.py  src/prepare_data.py  src/train.py  src/infer.py  README.md
   prepared/        <- prepare_data.py writes materialized 16 kHz audio chunks here
   artifacts/       <- train.py writes the LoRA adapter + logs here
 ```
@@ -43,15 +43,15 @@ also still works from the local repo checkout.)
 export HF_TOKEN=hf_...            # needs access to google/WaxalNLP + accept whisper-large-v3 terms
 
 # 1) Smoke test first (a few clips per language) — proves the whole pipeline in minutes:
-python prepare_data.py --max-examples-per-language 40
-python train.py --num-train-epochs 1 --eval-steps 20 --save-steps 20 \
+python src/prepare_data.py --max-examples-per-language 40
+python src/train.py --num-train-epochs 1 --eval-steps 20 --save-steps 20 \
                 --max-eval-samples-per-language 20
-python infer.py --eval-num-samples 20 --skip-submission
+python src/infer.py --eval-num-samples 20 --skip-submission
 
 # 2) Full run:
-python prepare_data.py
-python train.py                                  # ~3 epochs; defaults match docs/plans §7a
-python infer.py --artifact-dir ./artifacts/whisper-large-v3-lora
+python src/prepare_data.py
+python src/train.py                                  # ~3 epochs; defaults match plan-whisper-lora.md §7a
+python src/infer.py --artifact-dir ./artifacts/whisper-large-v3-lora
 ```
 Defaults: LoRA r=32/α=32, lr 1e-4, 3 epochs, per-device batch 8 × grad-accum 2
 (eff. 16), bf16 + gradient checkpointing. Override any via `--flag` (see `--help`).

@@ -1,7 +1,7 @@
-"""experiment-01 / v1 — Fine-tune openai/whisper-large-v3 for multilingual ASR
+"""whisper-lora / v1 — Fine-tune openai/whisper-large-v3 for multilingual ASR
 (Lingala + Shona + Luganda) with LoRA, selecting checkpoints by WER/CER.
 
-What this does that experiment-00 did not (see docs/plans/experiment-01.md):
+What this does that gemma3n-baseline did not (see plan-whisper-lora.md):
   * Whisper-large-v3 (speech-specialized) instead of Gemma 3n.
   * Correct sequence lengths (max_target_length ~256) — no label truncation.
   * LoRA r=32/alpha=32 on encoder AND decoder attention + MLP.
@@ -136,7 +136,7 @@ def load_split(data_dir: str, split: str):
 def filter_by_duration(ds, sample_rate: int, max_sec: float, log_path: str | None = None):
     """Drops clips longer than max_sec (Whisper's 30 s cap) and logs the damage
     PER LANGUAGE + the duration distribution of what was dropped — so we can
-    decide how to recover these in v2 (forced-alignment chunking, see docs/plans)."""
+    decide how to recover these in v2 (forced-alignment chunking, see plan-whisper-lora.md)."""
     from collections import Counter
 
     import numpy as np

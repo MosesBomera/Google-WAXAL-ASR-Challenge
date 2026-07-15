@@ -1,0 +1,75 @@
+{
+  "lin": {
+    "n_clips": 16244,
+    "n_val_clips": 1844,
+    "n_speakers_total": 96,
+    "n_speakers_train": 95,
+    "n_speakers_validation": 73,
+    "speakers_in_both": 72,
+    "val_clips_whose_speaker_is_in_train": 1843,
+    "val_speaker_leakage_pct": 99.95,
+    "clips_per_speaker": {
+      "n": 96,
+      "min": 1.0,
+      "p50": 49.0,
+      "p90": 516.0,
+      "p99": 855.3999999999974,
+      "max": 1737.0,
+      "mean": 169.20833333333334
+    },
+    "top_speaker_share_pct": 10.69,
+    "gender_counts": {
+      "female": 9278,
+      "male": 6966
+    }
+  },
+  "lug": {
+    "n_clips": 6119,
+    "n_val_clips": 664,
+    "n_speakers_total": 339,
+    "n_speakers_train": 334,
+    "n_speakers_validation": 252,
+    "speakers_in_both": 247,
+    "val_clips_whose_speaker_is_in_train": 659,
+    "val_speaker_leakage_pct": 99.25,
+    "clips_per_speaker": {
+      "n": 339,
+      "min": 1.0,
+      "p50": 16.0,
+      "p90": 38.0,
+      "p99": 62.0,
+      "max": 69.0,
+      "mean": 18.050147492625367
+    },
+    "top_speaker_share_pct": 1.13,
+    "gender_counts": {
+      "male": 3245,
+      "female": 2817,
+      "unknown": 57
+    }
+  },
+  "sna": {
+    "n_clips": 15836,
+    "n_val_clips": 1727,
+    "n_speakers_total": 160,
+    "n_speakers_train": 157,
+    "n_speakers_validation": 100,
+    "speakers_in_both": 97,
+    "val_clips_whose_speaker_is_in_train": 1723,
+    "val_speaker_leakage_pct": 99.77,
+    "clips_per_speaker": {
+      "n": 160,
+      "min": 1.0,
+      "p50": 15.0,
+      "p90": 262.1,
+      "p99": 1009.9899999999982,
+      "max": 1403.0,
+      "mean": 98.975
+    },
+    "top_speaker_share_pct": 8.86,
+    "gender_counts": {
+      "female": 9158,
+      "male": 6678
+    }
+  }
+}

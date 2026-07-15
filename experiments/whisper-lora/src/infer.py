@@ -1,9 +1,9 @@
-"""experiment-01 / v1 — inference for the Whisper-large-v3 LoRA adapter.
+"""whisper-lora / v1 — inference for the Whisper-large-v3 LoRA adapter.
 
 Two independent jobs (either can be skipped):
   1. EVALUATION (default on): stream the WaxalNLP test split, transcribe it, and
      report WER/CER PER LANGUAGE + macro/micro. This uses the publicly available
-     test labels ONLY to measure — never to train, never submitted. (docs/plans §10)
+     test labels ONLY to measure — never to train, never submitted. (plan-whisper-lora.md §10)
   2. SUBMISSION: transcribe the ids in SampleSubmission.csv and write submission.csv.
 
 Decoding matches Phase-2 conditions: audio only, the model AUTO-DETECTS language
@@ -132,7 +132,7 @@ def _window_bounds(n_samples, win, stride):
 
 def _transcribe_long(model, processor, audio, device, args):
     """Whisper caps at 30 s, so a longer clip is split into successive windows,
-    each transcribed, and the pieces concatenated (docs/plans §8)."""
+    each transcribed, and the pieces concatenated (plan-whisper-lora.md §8)."""
     sr = args.sample_rate
     win = int(args.chunk_length_s * sr)
     stride = max(1, int((args.chunk_length_s - args.chunk_overlap_s) * sr))

@@ -1,0 +1,1583 @@
+{
+  "total_clips": 38199,
+  "per_language": {
+    "lin": {
+      "n_clips": 16244,
+      "hours": 81.19,
+      "duration_s": {
+        "n": 16244,
+        "min": 1.0080000162124634,
+        "p50": 17.615999221801758,
+        "p90": 24.983999252319336,
+        "p99": 33.263999938964844,
+        "max": 37.29600143432617,
+        "mean": 17.992557503031673
+      },
+      "words_per_sec": {
+        "n": 16244,
+        "min": 0.0,
+        "p50": 1.4963813462419178,
+        "p90": 2.3582339438452706,
+        "p99": 27.777777331005755,
+        "max": 43.65079294872333,
+        "mean": 2.6965044706036383
+      },
+      "chars_per_sec": {
+        "n": 16244,
+        "min": 0.0,
+        "p50": 8.2400499532405,
+        "p90": 12.549238664806976,
+        "p99": 148.11201900291385,
+        "max": 242.063488170193,
+        "mean": 14.655068922492088
+      },
+      "n_words": {
+        "n": 16244,
+        "min": 0.0,
+        "p50": 26.0,
+        "p90": 42.0,
+        "p99": 63.0,
+        "max": 102.0,
+        "mean": 27.44798079290815
+      },
+      "n_chars": {
+        "n": 16244,
+        "min": 0.0,
+        "p50": 146.0,
+        "p90": 227.0,
+        "p99": 334.0,
+        "max": 512.0,
+        "mean": 149.953644422556
+      },
+      "duration_histogram": {
+        "0-1": 0,
+        "1-1.5": 1044,
+        "1.5-2": 0,
+        "2-5": 6,
+        "5-10": 91,
+        "10-20": 10256,
+        "20-30": 4357,
+        "30-40": 490,
+        "40-60": 0,
+        ">=60": 0
+      }
+    },
+    "lug": {
+      "n_clips": 6119,
+      "hours": 41.86,
+      "duration_s": {
+        "n": 6119,
+        "min": 4.5,
+        "p50": 22.284000396728516,
+        "p90": 37.36800003051758,
+        "p99": 44.099998474121094,
+        "max": 46.04399871826172,
+        "mean": 24.629453830653535
+      },
+      "words_per_sec": {
+        "n": 6119,
+        "min": 0.2981514528036432,
+        "p50": 1.1508684293578044,
+        "p90": 1.6119113147571384,
+        "p99": 2.0571978995284765,
+        "max": 2.7777777287204577,
+        "mean": 1.1823627013066385
+      },
+      "chars_per_sec": {
+        "n": 6119,
+        "min": 2.0870601696255022,
+        "p50": 8.287292675363766,
+        "p90": 11.342426612183754,
+        "p99": 14.603667234011708,
+        "max": 19.323671484866466,
+        "mean": 8.478376136943618
+      },
+      "n_words": {
+        "n": 6119,
+        "min": 5.0,
+        "p50": 27.0,
+        "p90": 46.0,
+        "p99": 64.0,
+        "max": 90.0,
+        "mean": 28.990031050825298
+      },
+      "n_chars": {
+        "n": 6119,
+        "min": 42.0,
+        "p50": 193.0,
+        "p90": 323.1999999999998,
+        "p99": 454.6399999999994,
+        "max": 650.0,
+        "mean": 207.92743912403986
+      },
+      "duration_histogram": {
+        "0-1": 0,
+        "1-1.5": 0,
+        "1.5-2": 0,
+        "2-5": 3,
+        "5-10": 53,
+        "10-20": 2088,
+        "20-30": 2608,
+        "30-40": 972,
+        "40-60": 395,
+        ">=60": 0
+      }
+    },
+    "sna": {
+      "n_clips": 15836,
+      "hours": 89.44,
+      "duration_s": {
+        "n": 15836,
+        "min": 1.0080000162124634,
+        "p50": 19.70400047302246,
+        "p90": 26.97599983215332,
+        "p99": 32.736000061035156,
+        "max": 35.90399932861328,
+        "mean": 20.332336060324533
+      },
+      "words_per_sec": {
+        "n": 15836,
+        "min": 0.19984012043282404,
+        "p50": 1.139516447810759,
+        "p90": 1.5643665296482565,
+        "p99": 19.84126952214697,
+        "max": 42.65872947261598,
+        "mean": 1.5585886521588523
+      },
+      "chars_per_sec": {
+        "n": 15836,
+        "min": 1.2583892704704787,
+        "p50": 9.259259129303606,
+        "p90": 12.647543657454754,
+        "p99": 168.3035687216113,
+        "max": 360.1190418269675,
+        "mean": 12.791195686526665
+      },
+      "n_words": {
+        "n": 15836,
+        "min": 3.0,
+        "p50": 23.0,
+        "p90": 34.0,
+        "p99": 45.0,
+        "max": 59.0,
+        "mean": 23.406226319777723
+      },
+      "n_chars": {
+        "n": 15836,
+        "min": 18.0,
+        "p50": 185.0,
+        "p90": 274.5,
+        "p99": 368.0,
+        "max": 488.0,
+        "mean": 191.3504041424602
+      },
+      "duration_histogram": {
+        "0-1": 0,
+        "1-1.5": 354,
+        "1.5-2": 0,
+        "2-5": 5,
+        "5-10": 48,
+        "10-20": 7874,
+        "20-30": 7036,
+        "30-40": 519,
+        "40-60": 0,
+        ">=60": 0
+      }
+    }
+  },
+  "threshold_sweep": {
+    "lin": {
+      "n_clips": 16244,
+      "min_duration": {
+        "<0.5s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<1.0s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<1.5s": {
+          "n": 1044,
+          "pct": 6.43
+        },
+        "<2.0s": {
+          "n": 1044,
+          "pct": 6.43
+        }
+      },
+      "max_duration": {
+        ">20.0s": {
+          "n": 4847,
+          "pct": 29.84
+        },
+        ">30.0s": {
+          "n": 490,
+          "pct": 3.02
+        },
+        ">40.0s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        ">60.0s": {
+          "n": 0,
+          "pct": 0.0
+        }
+      },
+      "max_words_per_sec": {
+        ">3.0": {
+          "n": 1062,
+          "pct": 6.54
+        },
+        ">4.0": {
+          "n": 1025,
+          "pct": 6.31
+        },
+        ">5.0": {
+          "n": 1013,
+          "pct": 6.24
+        },
+        ">6.0": {
+          "n": 997,
+          "pct": 6.14
+        }
+      },
+      "low_words_per_sec": {
+        "<0.2": {
+          "n": 6,
+          "pct": 0.04
+        },
+        "<0.3": {
+          "n": 84,
+          "pct": 0.52
+        },
+        "<0.5": {
+          "n": 471,
+          "pct": 2.9
+        }
+      },
+      "empty_text": {
+        "n": 1,
+        "pct": 0.01
+      },
+      "short_clips_that_are_also_fast": {
+        "n_short_lt_1.5s": 1044,
+        "of_which_wps_gt_4": 1023,
+        "of_which_wps_gt_6": 997,
+        "median_words_in_short_clips": 22.0
+      }
+    },
+    "lug": {
+      "n_clips": 6119,
+      "min_duration": {
+        "<0.5s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<1.0s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<1.5s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<2.0s": {
+          "n": 0,
+          "pct": 0.0
+        }
+      },
+      "max_duration": {
+        ">20.0s": {
+          "n": 3975,
+          "pct": 64.96
+        },
+        ">30.0s": {
+          "n": 1367,
+          "pct": 22.34
+        },
+        ">40.0s": {
+          "n": 395,
+          "pct": 6.46
+        },
+        ">60.0s": {
+          "n": 0,
+          "pct": 0.0
+        }
+      },
+      "max_words_per_sec": {
+        ">3.0": {
+          "n": 0,
+          "pct": 0.0
+        },
+        ">4.0": {
+          "n": 0,
+          "pct": 0.0
+        },
+        ">5.0": {
+          "n": 0,
+          "pct": 0.0
+        },
+        ">6.0": {
+          "n": 0,
+          "pct": 0.0
+        }
+      },
+      "low_words_per_sec": {
+        "<0.2": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<0.3": {
+          "n": 2,
+          "pct": 0.03
+        },
+        "<0.5": {
+          "n": 38,
+          "pct": 0.62
+        }
+      },
+      "empty_text": {
+        "n": 0,
+        "pct": 0.0
+      },
+      "short_clips_that_are_also_fast": {
+        "n_short_lt_1.5s": 0,
+        "of_which_wps_gt_4": 0,
+        "of_which_wps_gt_6": 0,
+        "median_words_in_short_clips": null
+      }
+    },
+    "sna": {
+      "n_clips": 15836,
+      "min_duration": {
+        "<0.5s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<1.0s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        "<1.5s": {
+          "n": 354,
+          "pct": 2.24
+        },
+        "<2.0s": {
+          "n": 354,
+          "pct": 2.24
+        }
+      },
+      "max_duration": {
+        ">20.0s": {
+          "n": 7555,
+          "pct": 47.71
+        },
+        ">30.0s": {
+          "n": 519,
+          "pct": 3.28
+        },
+        ">40.0s": {
+          "n": 0,
+          "pct": 0.0
+        },
+        ">60.0s": {
+          "n": 0,
+          "pct": 0.0
+        }
+      },
+      "max_words_per_sec": {
+        ">3.0": {
+          "n": 354,
+          "pct": 2.24
+        },
+        ">4.0": {
+          "n": 354,
+          "pct": 2.24
+        },
+        ">5.0": {
+          "n": 354,
+          "pct": 2.24
+        },
+        ">6.0": {
+          "n": 354,
+          "pct": 2.24
+        }
+      },
+      "low_words_per_sec": {
+        "<0.2": {
+          "n": 1,
+          "pct": 0.01
+        },
+        "<0.3": {
+          "n": 11,
+          "pct": 0.07
+        },
+        "<0.5": {
+          "n": 152,
+          "pct": 0.96
+        }
+      },
+      "empty_text": {
+        "n": 0,
+        "pct": 0.0
+      },
+      "short_clips_that_are_also_fast": {
+        "n_short_lt_1.5s": 354,
+        "of_which_wps_gt_4": 354,
+        "of_which_wps_gt_6": 354,
+        "median_words_in_short_clips": 20.0
+      }
+    }
+  },
+  "extremes": {
+    "lin": {
+      "shortest": [
+        {
+          "id": "lin_24754",
+          "duration_s": 1.01,
+          "n_words": 25,
+          "wps": 24.8,
+          "text": "Ndaku oyo ezali na bosoto mpo bazali kosala ngo likolo ezali na mwinda misatu ekangami esika moko na se ezali na mabaya oyo ba matelaka."
+        },
+        {
+          "id": "lin_24796",
+          "duration_s": 1.01,
+          "n_words": 18,
+          "wps": 17.86,
+          "text": "Mobali afandi alati kanzaku,ya langi ya motane na singa ya kingo ya mayaka alati ekoti ya ba silamu."
+        },
+        {
+          "id": "lin_32211",
+          "duration_s": 1.01,
+          "n_words": 29,
+          "wps": 28.77,
+          "text": "Mesa ezali na ba nzete ya mabaya na ba kiti ezali na ba nzete ya mabaya na likolo batie ba coussin na kitambala batie na matalatala likolo ya mesa."
+        },
+        {
+          "id": "lin_69411",
+          "duration_s": 1.01,
+          "n_words": 12,
+          "wps": 11.9,
+          "text": "awa namoni awa eza mutuka pembeni ya nzela na langi ya pembe,kaki"
+        },
+        {
+          "id": "lin_69462",
+          "duration_s": 1.01,
+          "n_words": 22,
+          "wps": 21.83,
+          "text": "Mwana muasi atali na se akangisi suki ya minene,na liboso ba kati ye ba kitisi suki ba kati na sima ba kangi."
+        },
+        {
+          "id": "lin_42140",
+          "duration_s": 1.01,
+          "n_words": 12,
+          "wps": 11.9,
+          "text": "Maboko mibale oyo elati elamba nango esimbi buku ya pembe na moyindo"
+        },
+        {
+          "id": "lin_55733",
+          "duration_s": 1.01,
+          "n_words": 12,
+          "wps": 11.9,
+          "text": "Manga ya kotela na se ya matiti misusu na kati ya bassin."
+        },
+        {
+          "id": "lin_2756",
+          "duration_s": 1.01,
+          "n_words": 29,
+          "wps": 28.77,
+          "text": "Ndaku ya ko sala nango ya kitoko ya monene ezali na langi ya pembe na likolo kuna ezali na maboke ya fololo oyo pe ezali na langi ya pembe."
+        },
+        {
+          "id": "lin_24604",
+          "duration_s": 1.01,
+          "n_words": 27,
+          "wps": 26.79,
+          "text": "Ba mama oyo ba tekaka ba mapa na ba bassin,bawuti kozua ba mapa na bango bazali kotambola nango baza na mapa likolo na mutu na ba bassin."
+        },
+        {
+          "id": "lin_24618",
+          "duration_s": 1.01,
+          "n_words": 22,
+          "wps": 21.83,
+          "text": "Bilengi basi mineyi na mobali moko basalaka ba film ya Congo Kinshasa,na loboko ya mobali ezali na Naomie,Maria,na mobali Guecho,Amina na Cyana."
+        }
+      ],
+      "longest": [
+        {
+          "id": "lin_73177",
+          "duration_s": 37.3,
+          "n_words": 48,
+          "wps": 1.29,
+          "text": "Video eza liboso na kana biloko ya kolia oyo eza kitoko mpenza bamoni ba mwambu ya kitoko pe bamoni mwa tongo do kakate ya passe bamoni ba orange bamango ba vokade na oyo bacytro p"
+        },
+        {
+          "id": "lin_74771",
+          "duration_s": 36.82,
+          "n_words": 62,
+          "wps": 1.68,
+          "text": "Elili oyo eza liboso na ngai namoni mwa motuka ya minene mpenza pe motuka oyo eza na balabala moko ya mabele pe namoni motuka oyo eza na bamwa nzete ya minene pe banzete oyo bamema"
+        },
+        {
+          "id": "lin_95149",
+          "duration_s": 35.86,
+          "n_words": 12,
+          "wps": 0.33,
+          "text": "Bikeko ya basi bakangisi suki po balakisa bato modele ya suki yango."
+        },
+        {
+          "id": "lin_47114",
+          "duration_s": 35.78,
+          "n_words": 38,
+          "wps": 1.06,
+          "text": "awa nazomona kiti ya fotei nazomona yango eza kaka moko eza kiti ya fotei eza na langi ya mbwe namoni eza na bakusen yango bakuse yango eza na langi ya pembe eza pe na kamwa langi "
+        },
+        {
+          "id": "lin_86447",
+          "duration_s": 35.78,
+          "n_words": 65,
+          "wps": 1.82,
+          "text": "epanzele ya sango oyo eza na ba elili na bikomeli ebele bikomeli yango eza na lange ya motani na lange ya bondinga a langiya mwindo elili eza na epanzele ya sango oyo eza elili ya "
+        },
+        {
+          "id": "lin_40462",
+          "duration_s": 35.78,
+          "n_words": 78,
+          "wps": 2.18,
+          "text": "Awa ezali lisanga ya bilenge mibale elenge mwasi na elenge mobali,elenge mobali alati mbati eza na langi ya mwindu na elamba ya likolo eza na langi ya mwindu esangani na langi ya p"
+        },
+        {
+          "id": "lin_39756",
+          "duration_s": 35.78,
+          "n_words": 60,
+          "wps": 1.68,
+          "text": "Awa ezali ndako oyo etongami mibale likolo na se ya likolo eza na fenêtre mibale ndako oyo ya likolo eza na balangi ekeseni langi ya mosaka, langi ya pembe na ndako ya se tozomona "
+        },
+        {
+          "id": "lin_33480",
+          "duration_s": 35.66,
+          "n_words": 35,
+          "wps": 0.98,
+          "text": "Awa liboso na ngai na moni bao lakisa ngai likolo ya mesa ka insecte oyo ba bengaka ango na monoko ya lopoto nayebi te mais ba bengaka yango kisani,eswaka mingi epanaka kaka na ba "
+        },
+        {
+          "id": "lin_26788",
+          "duration_s": 35.66,
+          "n_words": 47,
+          "wps": 1.32,
+          "text": "Awa ezali bongo na tongo bana liboso bakota kelasi, basalaka mulongo pote bakota na kimiya. Liboso ya kelasi ezali na langi ya pembe pe bozinga. Mingi na bango balati uniforme, ela"
+        },
+        {
+          "id": "lin_8365",
+          "duration_s": 35.66,
+          "n_words": 57,
+          "wps": 1.6,
+          "text": "awa eza elengeelenge mobali oyo esimbi nkombo na maboko na ye azokombola liboso na ye eza na ekuke ekuke eza liboso ya mwa mobali oyo elenge mobali oyo eza na langi ya bodinga mwa "
+        }
+      ],
+      "fastest_wps": [
+        {
+          "id": "lin_38799",
+          "duration_s": 1.01,
+          "n_words": 44,
+          "wps": 43.65,
+          "text": "Basi mibale moko alati elamba ya mwindu na ba nzela ya bozinga asimbi classeur ya mwindu na téléphone na maboko mosusu alati elamba ya mwindu pembe asimbi sake na maboko aza suki p"
+        },
+        {
+          "id": "lin_2836",
+          "duration_s": 1.01,
+          "n_words": 42,
+          "wps": 41.67,
+          "text": "Awa penza tok'obenga yango neti canapé, ba canapé wana boye batiya ngo mingi mingi na ba balcon. Wana eza neti atie ango na pelouse naye kaka po na ko mi relaxer soki alingi apema "
+        },
+        {
+          "id": "lin_18924",
+          "duration_s": 1.01,
+          "n_words": 42,
+          "wps": 41.67,
+          "text": "Ndako ezali na langi ya motane na ba ekuke ya langi ya pembe liboso nango ezali na ba fololo na matiti n'a se ya langi ya pondu na ba nzete ya langi ya pondu pembeni ezali na motuk"
+        },
+        {
+          "id": "lin_36797",
+          "duration_s": 1.01,
+          "n_words": 41,
+          "wps": 40.67,
+          "text": "Lopangu ezali ya kala ezali na ka ekuke ya moke na matiti likolo pembeni ezali na ndako ya monene ya pembe oyo ezali na esika ya se na likolo oyo pe ezali na ekuke monene oyo ezali"
+        },
+        {
+          "id": "lin_23286",
+          "duration_s": 1.01,
+          "n_words": 41,
+          "wps": 40.67,
+          "text": "Awa eza neti forêt Moko boye eza pêne pêne na mar eza neti climat Moko ya kitoko soki olingi ozwa o réfléchir soki olingi okoma penza na ba réflexion ya bien mokie mokie oke okota "
+        },
+        {
+          "id": "lin_86358",
+          "duration_s": 1.01,
+          "n_words": 41,
+          "wps": 40.67,
+          "text": "Ba sani misato ezali likolo ya mesa oyo batandi kitambala,mibale ya munene ya pembe ya mbele ezali na manga oyo ba kati kati déjà mosusu ka kibakuli na yango ya mbele na yango pe e"
+        },
+        {
+          "id": "lin_21374",
+          "duration_s": 1.01,
+          "n_words": 40,
+          "wps": 39.68,
+          "text": "Mesa esalami na kiti kwala ezali na likolo na molangi ya masanga ya sukali oyo babengi Coca cola na pembeni ya masanga ya makasi oyo ba bengi Macandrews pembeni ezali na sachet mok"
+        },
+        {
+          "id": "lin_21801",
+          "duration_s": 1.01,
+          "n_words": 40,
+          "wps": 39.68,
+          "text": "Ba sapato ezali na likolo ya mesa na se na mesa ezali na langi ya pembe sapato ezali na langi ya moyindo ya batu mikolo ya basi ezali mapapa na liboso ezali na mabende oyo ezali na"
+        },
+        {
+          "id": "lin_30147",
+          "duration_s": 1.01,
+          "n_words": 40,
+          "wps": 39.68,
+          "text": "Ba mibali mineyi batelemi na matiti moko ya liboso alati eloko te likolo atié misapi mibale liboso ya mibale alati bilamba ya bonzinga ya misato atelemi alati moyindo na pembe na m"
+        },
+        {
+          "id": "lin_69793",
+          "duration_s": 1.01,
+          "n_words": 40,
+          "wps": 39.68,
+          "text": "Batu batelemi liboso ya ba bendele mineyi bendele mibale ezali n'a langi ya pondu bendele mibale mosusu ezali n'a langi ya bozinga ezali na mama Moko aplati bilamba ya ba silamu ba"
+        }
+      ],
+      "slowest_wps": [
+        {
+          "id": "lin_9193",
+          "duration_s": 17.66,
+          "n_words": 0,
+          "wps": 0.0,
+          "text": ""
+        },
+        {
+          "id": "lin_80912",
+          "duration_s": 16.06,
+          "n_words": 2,
+          "wps": 0.12,
+          "text": "Namoni eloko"
+        },
+        {
+          "id": "lin_54213",
+          "duration_s": 22.18,
+          "n_words": 4,
+          "wps": 0.18,
+          "text": "Babeti ndembo ya maboko."
+        },
+        {
+          "id": "lin_14142",
+          "duration_s": 31.18,
+          "n_words": 6,
+          "wps": 0.19,
+          "text": "Oyo eza wc na ki mondele."
+        },
+        {
+          "id": "lin_33455",
+          "duration_s": 20.74,
+          "n_words": 4,
+          "wps": 0.19,
+          "text": "Babeti ndembo ya makolo."
+        },
+        {
+          "id": "lin_75602",
+          "duration_s": 25.78,
+          "n_words": 5,
+          "wps": 0.19,
+          "text": "Batongi ndako kitoko penza makasi."
+        },
+        {
+          "id": "lin_18549",
+          "duration_s": 15.22,
+          "n_words": 3,
+          "wps": 0.2,
+          "text": "bazungu yakulambela loso"
+        },
+        {
+          "id": "lin_34771",
+          "duration_s": 29.74,
+          "n_words": 6,
+          "wps": 0.2,
+          "text": "Na moni ba buku ya kotanga"
+        },
+        {
+          "id": "lin_2418",
+          "duration_s": 19.82,
+          "n_words": 4,
+          "wps": 0.2,
+          "text": "Mbila ebele yako tokisa."
+        },
+        {
+          "id": "lin_94592",
+          "duration_s": 19.42,
+          "n_words": 4,
+          "wps": 0.21,
+          "text": "bendela ya mboka bapaya"
+        }
+      ]
+    },
+    "lug": {
+      "shortest": [
+        {
+          "id": "lug_44480",
+          "duration_s": 4.5,
+          "n_words": 11,
+          "wps": 2.44,
+          "text": "Ebintu bino bikozesebwa mu buyonjo era nga bitudde ku mmeeza ey'embaawo."
+        },
+        {
+          "id": "lug_5874",
+          "duration_s": 4.9,
+          "n_words": 11,
+          "wps": 2.25,
+          "text": "Wano waliwo omuddo ogwa kiragala n'emiti egya kiragala ku luuyi luli."
+        },
+        {
+          "id": "lug_3194",
+          "duration_s": 4.93,
+          "n_words": 10,
+          "wps": 2.03,
+          "text": "Enjuki eno eyina ebyoya ebya kyenvu n'ebyakitaka eri ku kimuli."
+        },
+        {
+          "id": "lug_41003",
+          "duration_s": 5.04,
+          "n_words": 9,
+          "wps": 1.79,
+          "text": "Akazike kano kaddugavu katudde kkatabi kuliko n'ebikoola ebya kiragala."
+        },
+        {
+          "id": "lug_95242",
+          "duration_s": 5.18,
+          "n_words": 7,
+          "wps": 1.35,
+          "text": "Kano kasowaani ka bbumba kateereddwamu ebinyeebwa eby'empogola."
+        },
+        {
+          "id": "lug_93390",
+          "duration_s": 5.33,
+          "n_words": 14,
+          "wps": 2.63,
+          "text": "Ensolo zino ziyitibwa mbogo. Ziri mu muddo ogwakala ku ttale okuliraana omuti ogwa kiragala."
+        },
+        {
+          "id": "lug_29756",
+          "duration_s": 5.33,
+          "n_words": 7,
+          "wps": 1.31,
+          "text": "Enjuki eno egudde ku kimuli kiriko kyenvunvu."
+        },
+        {
+          "id": "lug_45254",
+          "duration_s": 5.36,
+          "n_words": 9,
+          "wps": 1.68,
+          "text": "Guno mugga gutambula waliwo ku bbali emitiititi egya kira"
+        },
+        {
+          "id": "lug_79257",
+          "duration_s": 5.36,
+          "n_words": 12,
+          "wps": 2.24,
+          "text": "Enjovu eno eya langi ya kikuusikuusi eyina amasanga abiri n'omusana gwa kyenvu."
+        },
+        {
+          "id": "lug_6833",
+          "duration_s": 5.4,
+          "n_words": 15,
+          "wps": 2.78,
+          "text": "Ekiwuka kino kiri ku kamuli aka kakobe mu kibira era ng'ekiwuka kyo kiddugavu ne kyenvu."
+        }
+      ],
+      "longest": [
+        {
+          "id": "lug_37318",
+          "duration_s": 46.04,
+          "n_words": 65,
+          "wps": 1.41,
+          "text": "Ekizimbe awatundirwa ebintu eby'enjawulo omuli ebyokunywa, ebikozesebwa mu kuzimba omuli ttanka, zippayipo empanvu ssaako n'obusawo obwa sseminti era nga ku luuyi luno olusooka olw"
+        },
+        {
+          "id": "lug_17473",
+          "duration_s": 45.76,
+          "n_words": 64,
+          "wps": 1.4,
+          "text": "Ndaba akatale ak'omubuulo akasangibwa ku makubo wakati nga nga mulimu abakyala abatunda enva endiirwa okuli ennyaanya n'obutungulu. Waliwo n'abo abakalirira gonja ku kkubo nga kw'o"
+        },
+        {
+          "id": "lug_27610",
+          "duration_s": 45.58,
+          "n_words": 70,
+          "wps": 1.54,
+          "text": "Obudde bwa misana tuli ku nnyanja. Ku nnyanja kuliko eryato, eryato ddene bulungi nnyo lya yingini, kuliko omusajja waggulu akutte omutwe emikono ebiri ku mutwe gwe yeebase ku lyat"
+        },
+        {
+          "id": "lug_83070",
+          "duration_s": 45.54,
+          "n_words": 31,
+          "wps": 0.68,
+          "text": "Ono mwami atudde akutte ekibbo kirimu empeke z'emmwanyi ez'e zaggyibwako akakuta za nkalu bulungi zaasiikibwako zirabika bulungi nnyo mu langi eya kitaka ayambadde obusapatu obwa b"
+        },
+        {
+          "id": "lug_67171",
+          "duration_s": 45.54,
+          "n_words": 88,
+          "wps": 1.93,
+          "text": "Omukyala yeekutte ku mpagi eri waggulu w'omutwe gwe n'omukono gwe ogwa kkono era ng'omukono gwe ogwa ddyo asitudde ekikopo. Engalo ze zonna azisabise ne ggiraavuzi eziri mu kkala e"
+        },
+        {
+          "id": "lug_16198",
+          "duration_s": 45.18,
+          "n_words": 60,
+          "wps": 1.33,
+          "text": "Ndaba omukyala ali mu busuuti ng'asibye n'ekitambaala kya bbululu ku mutwe. Alina wano enkota z'amatooke mu maaso ge alabika alinda baguzi ate ebbali wali waliwo obwana, akamu teka"
+        },
+        {
+          "id": "lug_61752",
+          "duration_s": 45.14,
+          "n_words": 58,
+          "wps": 1.28,
+          "text": "Emmotoka ey'ekika kya loole Isuzu etisse akabindo k'abantu. Emmotoka eno njeru mu langi era ng'eriko abantu bayitirivu obungi abantu bano ebatisse n'ebintu byabwe. Oluguudo emmotok"
+        },
+        {
+          "id": "lug_40437",
+          "duration_s": 45.07,
+          "n_words": 48,
+          "wps": 1.06,
+          "text": "Nnengera amazzi nga galina olwazi mwe gava okuyiika eno wansi mu ngeri ey'ebiyiriro. Eno gye gayiika walaga nti miti era nga waliwo obuwanvu bwa maanyi okuva waggulu eno okutuuka e"
+        },
+        {
+          "id": "lug_65055",
+          "duration_s": 44.93,
+          "n_words": 39,
+          "wps": 0.87,
+          "text": "Obutambaala bwa njawulo mu ndabika oludda olumu lwa kiragala, olulala lwa bbulu omukwafu, olulala lwa bbulu ow'amazzi, olulala lwa kiragala ow'amazzi. Wakati waliwo akatambaala kul"
+        },
+        {
+          "id": "lug_88407",
+          "duration_s": 44.78,
+          "n_words": 72,
+          "wps": 1.61,
+          "text": "Oluuyi buno mu kifaananyi kino ndaba ababboodabooda bali mu kayisanyo, wamma ggwe abantu bali mu kibuga mu keetalo, abannyuka bannyuka, ndaba owabboodabooda w'akagaali, wamma ggwe "
+        }
+      ],
+      "fastest_wps": [
+        {
+          "id": "lug_6833",
+          "duration_s": 5.4,
+          "n_words": 15,
+          "wps": 2.78,
+          "text": "Ekiwuka kino kiri ku kamuli aka kakobe mu kibira era ng'ekiwuka kyo kiddugavu ne kyenvu."
+        },
+        {
+          "id": "lug_93390",
+          "duration_s": 5.33,
+          "n_words": 14,
+          "wps": 2.63,
+          "text": "Ensolo zino ziyitibwa mbogo. Ziri mu muddo ogwakala ku ttale okuliraana omuti ogwa kiragala."
+        },
+        {
+          "id": "lug_83644",
+          "duration_s": 5.83,
+          "n_words": 15,
+          "wps": 2.57,
+          "text": "Omwami ono ayambadde essaati eya kapere ey'emikono emiwanvu ayambadde akakoofiira akamyufu avuga maanyi ga kifu."
+        },
+        {
+          "id": "lug_39458",
+          "duration_s": 5.62,
+          "n_words": 14,
+          "wps": 2.49,
+          "text": "Abavubuka bano balabika nga bavubi era nga batunda ebyennyanja ku kkubo bye bamaze okuvuba."
+        },
+        {
+          "id": "lug_3479",
+          "duration_s": 18.14,
+          "n_words": 45,
+          "wps": 2.48,
+          "text": "Ekifaananyi kino kiraga embizzi y'omu nsiko. Embizzi z'omu nsiko eyina ebikoolakoola by'erya naye naye eri waliyo ebi ebisubi era w'olaba nti nsiko y'eriyo. Kati ekisolo nga kino e"
+        },
+        {
+          "id": "lug_50356",
+          "duration_s": 16.74,
+          "n_words": 41,
+          "wps": 2.45,
+          "text": "Ekifaananyi kino kiraga bannaffe Bakyeruppe era nga n'emabbali waliwo omukyala akutte enkumbi ayina kye yeetisse agenda. Naye waliwo emiti era waliwo n'akasozi akambuka naye Omuzun"
+        },
+        {
+          "id": "lug_30852",
+          "duration_s": 5.72,
+          "n_words": 14,
+          "wps": 2.45,
+          "text": "Abantu bambadde engoye eza kacungwa batudde kkaata ka kyenvu bakutte enkasi bali ku mugga."
+        },
+        {
+          "id": "lug_44480",
+          "duration_s": 4.5,
+          "n_words": 11,
+          "wps": 2.44,
+          "text": "Ebintu bino bikozesebwa mu buyonjo era nga bitudde ku mmeeza ey'embaawo."
+        },
+        {
+          "id": "lug_29453",
+          "duration_s": 5.8,
+          "n_words": 14,
+          "wps": 2.42,
+          "text": "Mukyala ono ayambadde essaati emmyufu azadde akatambaala ku mutwe yeetisse n'ebbaafu mulimu essowaani n'ebikopo."
+        },
+        {
+          "id": "lug_35594",
+          "duration_s": 16.16,
+          "n_words": 39,
+          "wps": 2.41,
+          "text": "Mu kifaananyi kino mulimu enjuki, enjuki eziva mu muzinga. Enjuki ezimu ziri ku mulyango gw'omuzinga nga ziraga nti nno zifuluma. Ate endala ne ziraga nti nno zo ziva wabweru nga z"
+        }
+      ],
+      "slowest_wps": [
+        {
+          "id": "lug_52675",
+          "duration_s": 20.12,
+          "n_words": 6,
+          "wps": 0.3,
+          "text": "Essomero lya kalina era nga likyazimbibwa."
+        },
+        {
+          "id": "lug_75698",
+          "duration_s": 20.09,
+          "n_words": 6,
+          "wps": 0.3,
+          "text": "Ebisiige eby'ebifaananyi, adungu n'ebisiige by'abakyala basatu."
+        },
+        {
+          "id": "lug_2910",
+          "duration_s": 16.2,
+          "n_words": 5,
+          "wps": 0.31,
+          "text": "Engoye, obuleesu n'ebirala bingi ebitafaanagana."
+        },
+        {
+          "id": "lug_74226",
+          "duration_s": 17.78,
+          "n_words": 6,
+          "wps": 0.34,
+          "text": "Enjuba egwa ennyanja amaato galiko abantu."
+        },
+        {
+          "id": "lug_19290",
+          "duration_s": 17.32,
+          "n_words": 6,
+          "wps": 0.35,
+          "text": "Enseenene bazikongoddeko ebyoya. Bagenda kuzisiika, ziriibwe."
+        },
+        {
+          "id": "lug_41396",
+          "duration_s": 16.63,
+          "n_words": 6,
+          "wps": 0.36,
+          "text": "Omusajja n'omulenzi basomba amataffaali okupanga ttanuulu."
+        },
+        {
+          "id": "lug_42772",
+          "duration_s": 16.63,
+          "n_words": 6,
+          "wps": 0.36,
+          "text": "Entugga ssatu ziyimiridde emabbali waliwo emiti."
+        },
+        {
+          "id": "lug_77514",
+          "duration_s": 16.27,
+          "n_words": 6,
+          "wps": 0.37,
+          "text": "Ebyagi ebiterekebwamu ebintu ebikunguddwa waliwo enkulukuku."
+        },
+        {
+          "id": "lug_85421",
+          "duration_s": 15.84,
+          "n_words": 6,
+          "wps": 0.38,
+          "text": "Ensolo zaagala kulya embogo; zigenda zigigoberera."
+        },
+        {
+          "id": "lug_46453",
+          "duration_s": 23.0,
+          "n_words": 9,
+          "wps": 0.39,
+          "text": "Emmotoka etikkiddwako emmere ey'amatooke era eyimiriddwako omwami akutte ebyu..."
+        }
+      ]
+    },
+    "sna": {
+      "shortest": [
+        {
+          "id": "sna_60964",
+          "duration_s": 1.01,
+          "n_words": 28,
+          "wps": 27.78,
+          "text": "Murume akasenga bhegi kumusana , arikufamba mugwagwa uye parutivi rwake panevanhuwo varikuenda kunzvimbo dzakasiya-siyana. Parutivi pezvivakwa panevanhu vakawaridza zvitengeswa zva"
+        },
+        {
+          "id": "sna_51513",
+          "duration_s": 1.01,
+          "n_words": 19,
+          "wps": 18.85,
+          "text": "Mufananidzo wemukadzi akarukwa mumusoro nevhunzi rekuwedzerera. Uye anoratidza kuti akaisa tswiye dzekuwedzerera. Mukadzi uyu akarukwa mabhuredzi matema akasungwa parutivi."
+        },
+        {
+          "id": "sna_51548",
+          "duration_s": 1.01,
+          "n_words": 21,
+          "wps": 20.83,
+          "text": "Muti wakapfumvutira une mashizha akasvibira kwazvo anoratidza kuti anowana mvura yakawanda. Muti uyu muchero wemumabhirosi nokuda kwevana vatsvuku varimo mumuti uyu."
+        },
+        {
+          "id": "sna_94191",
+          "duration_s": 1.01,
+          "n_words": 18,
+          "wps": 17.86,
+          "text": "Mwana akagerwa pangi akabviswa bvudzi rese parutivi. Pakati bvudzi rakakura uye rakasvibira bvudzi remwana uyu. Kumberi rakachekererwa zvakaisvonaka"
+        },
+        {
+          "id": "sna_51374",
+          "duration_s": 1.01,
+          "n_words": 19,
+          "wps": 18.85,
+          "text": "Mabhenguru masere ekushongedza mawoko. Mabhenguru aya akagadzIrwa nesimbi yesirivheri uye anoratidza kuti anesimbi inoshandiswa kusunga kuti mabhenguru aya asabve."
+        },
+        {
+          "id": "sna_82409",
+          "duration_s": 1.01,
+          "n_words": 11,
+          "wps": 10.91,
+          "text": "Mufananidzo wesinepuchati.Une ruvara rwakachena pakati nemuzira mutema.Pane rumwe ruvara rwegoridhe kumucheto."
+        },
+        {
+          "id": "sna_90084",
+          "duration_s": 1.01,
+          "n_words": 14,
+          "wps": 13.89,
+          "text": "Musikana anoita zvekumodhera.Ane bvudzi reafuro iro rakakura kwazvo rine mufananidzo wezipi ine ruvara rwesirivha."
+        },
+        {
+          "id": "sna_58325",
+          "duration_s": 1.01,
+          "n_words": 20,
+          "wps": 19.84,
+          "text": "Mubororo, unoshandiswa ne avo vanovheza migoti ne misika. Unoshandiswa kubora maburi pamatanda. Mubororo wakagadzirwa ne waya kumeshure kwawo unemubato wedanda."
+        },
+        {
+          "id": "sna_55248",
+          "duration_s": 1.01,
+          "n_words": 18,
+          "wps": 17.86,
+          "text": "Bembenene riri pashizha. Bembenene iri rine ruvara rutema nemizera yerupfumbu, rine madodzi madodzi akacheneruka, riri pashizha rerudzi rwebumudza."
+        },
+        {
+          "id": "sna_55284",
+          "duration_s": 1.01,
+          "n_words": 12,
+          "wps": 11.9,
+          "text": "Gonyeti rine ruvara rwemashizha, rine mizera michena parutivi, rine maziso eruvara rwebumhudza."
+        }
+      ],
+      "longest": [
+        {
+          "id": "sna_60089",
+          "duration_s": 35.9,
+          "n_words": 27,
+          "wps": 0.75,
+          "text": "Pachiteshi chamabhazi pakamira mabhazi ane chitsama uye panoonekwawo panozororera vanhu vachivanda zuva pakagadzirwa nesimbi pakapfurirwa nemarata. Vanhu vanoonekwa vachitengesa zv"
+        },
+        {
+          "id": "sna_29376",
+          "duration_s": 35.86,
+          "n_words": 29,
+          "wps": 0.81,
+          "text": "Tirimudhorobha reHarare uyezve tirikuona mukadzi arikufamba pamusoro pazvo tirikuona imba hombe inezvitoro zvakawanda koita imwe inotengeswa nharembozha inonzi itel uyezve munhu ar"
+        },
+        {
+          "id": "sna_24836",
+          "duration_s": 35.81,
+          "n_words": 25,
+          "wps": 0.7,
+          "text": "Mai vakatarisa hembe dzakanikwa parayini dziri dzemwana mudoko.Mai vakapfeka dhirezi retopu yebhuruu nesiketi tema nomusikana akapfeka siketi tema netisheti tsvuku.Mukomana akapfek"
+        },
+        {
+          "id": "sna_10169",
+          "duration_s": 35.78,
+          "n_words": 42,
+          "wps": 1.17,
+          "text": "Izvi zvipfekwa zvemumusoro anonzi makirauni anopfekedzwa kana munhu achichata ane ruvara wesirivha kana kirimu kana goridhe akaiswa madhekoresheni akasiyana siyana. Anogona kupfeke"
+        },
+        {
+          "id": "sna_96301",
+          "duration_s": 35.78,
+          "n_words": 23,
+          "wps": 0.64,
+          "text": "Vatambi venhabvu vari munhandare vachisimbisa nyama. Vakapfeka matisheti ane ruvara rwegirini akanyorwa kuti Zimbabwe kumusana. Vakapfekawo masokisi egirini. Nechekumhiri kunoonekw"
+        },
+        {
+          "id": "sna_95446",
+          "duration_s": 35.76,
+          "n_words": 25,
+          "wps": 0.7,
+          "text": "Mudhorobha mune zvivakwa zvemudurikidzanwa zvakagadzirwa nemhando dzakasiyana -siyana. Panoonekwa zvikwangwani zvinoshambadza uye zvinotaura mabasa ezvitoro. Vanhuwo zvavo vanoonek"
+        },
+        {
+          "id": "sna_54079",
+          "duration_s": 35.74,
+          "n_words": 53,
+          "wps": 1.48,
+          "text": "Musika une mirwi miviri yematomatisi akatsvuka. Nemirwi mina yetuma Carrots tudiki. Mirwi mitatu ye girinhi bhinzi. Murwi múmwe chete we girinhi pepa. Nekamwe kamhurwi kakasangana "
+        },
+        {
+          "id": "sna_3911",
+          "duration_s": 35.74,
+          "n_words": 42,
+          "wps": 1.18,
+          "text": "Munhu rume akabata simbi mumaoko akastimbirira pasi nedivi rimwe chete rimwe ruoko rakasimuka rinenge rakabata chiuno. Arikuratidza kuti arikuita mutambo wekusimudza masimbi, mutam"
+        },
+        {
+          "id": "sna_90545",
+          "duration_s": 35.71,
+          "n_words": 29,
+          "wps": 0.81,
+          "text": "Murume mukuru akapfeka mutirauzi we weki sutu ne jaketi. Arikufamba mudhorobha padivi pe bindu rakadyarwa maruva . Mudhorobha umu mune zvivakwa zvemudurikidzanwa, nemotokari dzirik"
+        },
+        {
+          "id": "sna_21903",
+          "duration_s": 35.66,
+          "n_words": 37,
+          "wps": 1.04,
+          "text": "Musoro wemunhukadzi wakarukwa pachishandiswa bvudzi rechirungu richibatanidzwa ne bvudzi rake rekuzvarwa naro. Akarukwa achivhurwa mutsara usina kururama unotangira kuhuma uchisvik"
+        }
+      ],
+      "fastest_wps": [
+        {
+          "id": "sna_66366",
+          "duration_s": 1.01,
+          "n_words": 43,
+          "wps": 42.66,
+          "text": "Chuma chemudzimai. Chuma ichi chakapfekedzwa mudhori kuratidza kuti chiri kushambadzwa kuti chiwane anotenga. Chuma ichi chakarukwa nezvuma zvidukuduku zvichena zvichirukwa zvichii"
+        },
+        {
+          "id": "sna_42775",
+          "duration_s": 1.01,
+          "n_words": 41,
+          "wps": 40.67,
+          "text": "Mureza une chipiyaniso pakati kunze kwawo kune ruvara rwegirini kwekutanga tichibva kuruboshwe kwechipiyaniso pane ruvara rweyero pakati pane ruvara rwebhureki poita ruvara ruchena"
+        },
+        {
+          "id": "sna_2652",
+          "duration_s": 1.01,
+          "n_words": 38,
+          "wps": 37.7,
+          "text": "Vakomana vari kumhanya vari munhandare yekumhanyira. Vakomana ava vanoratidza kuti vanotori pamakwikwi nekuti pane vaviri vakapfeka hembe dzakafanana zvinoratidza kuti ndevebato ri"
+        },
+        {
+          "id": "sna_67928",
+          "duration_s": 1.01,
+          "n_words": 37,
+          "wps": 36.71,
+          "text": "Mudziyo unoshandiswa kuti basa riite nyore.Pane mudziyo unonzi jeko une mubato wepuranga,kumusoro kwawo uyine simbi uye divi rawo rimwe chete rakatsetseka,rinocheka. Umwe wacho uno"
+        },
+        {
+          "id": "sna_50583",
+          "duration_s": 1.01,
+          "n_words": 36,
+          "wps": 35.71,
+          "text": "Amai vakabereka bhegi rine ruvara rwerupfumbu kumusana kwavo parutivi pane motokari ine masimbi kumashure uye yakashama ine ruvara rwedenga nemuzera muchena muzasi kurudyi kune mot"
+        },
+        {
+          "id": "sna_43864",
+          "duration_s": 1.01,
+          "n_words": 36,
+          "wps": 35.71,
+          "text": "Mukomana arikufamba mumugwagwa usina tara. Uyo unoratidza kuti unofamba motokari . Kurudyi rwake kune kombi chena pamwechete nerori. Pane ma taya akaturikana anoratidza kuti panzvi"
+        },
+        {
+          "id": "sna_71726",
+          "duration_s": 1.01,
+          "n_words": 36,
+          "wps": 35.71,
+          "text": "Motokari idiki itema yerudzi rwe Toyota yakasungirirwa ma ribbon matatu. Maviri ema ribbon aya ndeeruvara rutsvuku. Rimwe racho rine ruvara ruchena. Kumativi kune macheya matatu er"
+        },
+        {
+          "id": "sna_18561",
+          "duration_s": 1.01,
+          "n_words": 34,
+          "wps": 33.73,
+          "text": "Vatambi vari munhandare. Vari kutamba bhora remaoko. Vane mabato maviri. Vamwe vakapfeka nhumbi dzine ruvara rutema. Vamwe vane nhumbi dzine ruvara rwegoridhe. Vose vari munhandare"
+        },
+        {
+          "id": "sna_13945",
+          "duration_s": 1.01,
+          "n_words": 34,
+          "wps": 33.73,
+          "text": "Parutivi rwetara kana kuti mugwagwa pane dzimba dzakavakwa nezvidhinha dzikapendiwa neruvara rwemazhizha uye panegedhe dema iro rine chikwangwani chakanamirwa pariri. Juraworo riri"
+        },
+        {
+          "id": "sna_3674",
+          "duration_s": 1.01,
+          "n_words": 33,
+          "wps": 32.74,
+          "text": "Migwagwa iyi miviri, umwe inoenda , umwe uchidzoja. Aba baba varipamudhudhu vanoratidza kuti vanoshanda kukambani inotengeswa fishi. Saka vange vachienda kunosiira vanhu vanenge va"
+        }
+      ],
+      "slowest_wps": [
+        {
+          "id": "sna_64924",
+          "duration_s": 20.02,
+          "n_words": 4,
+          "wps": 0.2,
+          "text": "Bhuku rekunyora chenjedzo nezvekuita."
+        },
+        {
+          "id": "sna_38830",
+          "duration_s": 14.3,
+          "n_words": 3,
+          "wps": 0.21,
+          "text": "Teki risina tambo."
+        },
+        {
+          "id": "sna_31367",
+          "duration_s": 16.01,
+          "n_words": 4,
+          "wps": 0.25,
+          "text": "Movha yeuswa hwakaoma hurefu."
+        },
+        {
+          "id": "sna_66139",
+          "duration_s": 15.46,
+          "n_words": 4,
+          "wps": 0.26,
+          "text": "Tafura tema necheya tema."
+        },
+        {
+          "id": "sna_20226",
+          "duration_s": 15.46,
+          "n_words": 4,
+          "wps": 0.26,
+          "text": "Motikari dzakapakwa pedyo nebhangi."
+        },
+        {
+          "id": "sna_13446",
+          "duration_s": 15.02,
+          "n_words": 4,
+          "wps": 0.27,
+          "text": "Rori yakamira pedyo nedzimba."
+        },
+        {
+          "id": "sna_80371",
+          "duration_s": 14.98,
+          "n_words": 4,
+          "wps": 0.27,
+          "text": "Sadza nenyama zviri mundiro."
+        },
+        {
+          "id": "sna_10219",
+          "duration_s": 17.9,
+          "n_words": 5,
+          "wps": 0.28,
+          "text": "Mabhazi akamira ari mumutsetse, akamira."
+        },
+        {
+          "id": "sna_78652",
+          "duration_s": 27.22,
+          "n_words": 8,
+          "wps": 0.29,
+          "text": "Bhazi rezupco rine ruvara rwegirini nemutsetse weyero nechepakati"
+        },
+        {
+          "id": "sna_20049",
+          "duration_s": 20.38,
+          "n_words": 6,
+          "wps": 0.29,
+          "text": "Pabindu rezvirimwa, chibage, nemaruva nemiti yakasiyana."
+        }
+      ]
+    }
+  },
+  "characters": {
+    "total_distinct": 119,
+    "per_language_distinct": {
+      "lin": 109,
+      "lug": 70,
+      "sna": 84
+    },
+    "rare_under_20": [
+      {
+        "char": "ĝ",
+        "codepoint": "U+011D",
+        "count": 1
+      },
+      {
+        "char": "þ",
+        "codepoint": "U+00FE",
+        "count": 1
+      },
+      {
+        "char": "œ",
+        "codepoint": "U+0153",
+        "count": 1
+      },
+      {
+        "char": "Ķ",
+        "codepoint": "U+0136",
+        "count": 1
+      },
+      {
+        "char": "ķ",
+        "codepoint": "U+0137",
+        "count": 1
+      },
+      {
+        "char": "“",
+        "codepoint": "U+201C",
+        "count": 1
+      },
+      {
+        "char": "”",
+        "codepoint": "U+201D",
+        "count": 1
+      },
+      {
+        "char": "Ĺ",
+        "codepoint": "U+0139",
+        "count": 1
+      },
+      {
+        "char": "Œ",
+        "codepoint": "U+0152",
+        "count": 1
+      },
+      {
+        "char": "Ŋ",
+        "codepoint": "U+014A",
+        "count": 1
+      },
+      {
+        "char": "×",
+        "codepoint": "U+00D7",
+        "count": 1
+      },
+      {
+        "char": "ā",
+        "codepoint": "U+0101",
+        "count": 1
+      },
+      {
+        "char": "û",
+        "codepoint": "U+00FB",
+        "count": 2
+      },
+      {
+        "char": "«",
+        "codepoint": "U+00AB",
+        "count": 2
+      },
+      {
+        "char": "»",
+        "codepoint": "U+00BB",
+        "count": 2
+      },
+      {
+        "char": "⭐",
+        "codepoint": "U+2B50",
+        "count": 2
+      },
+      {
+        "char": "️",
+        "codepoint": "U+FE0F",
+        "count": 2
+      },
+      {
+        "char": "ü",
+        "codepoint": "U+00FC",
+        "count": 2
+      },
+      {
+        "char": "=",
+        "codepoint": "U+003D",
+        "count": 2
+      },
+      {
+        "char": "<",
+        "codepoint": "U+003C",
+        "count": 2
+      },
+      {
+        "char": "ĺ",
+        "codepoint": "U+013A",
+        "count": 3
+      },
+      {
+        "char": "ò",
+        "codepoint": "U+00F2",
+        "count": 3
+      },
+      {
+        "char": ">",
+        "codepoint": "U+003E",
+        "count": 3
+      },
+      {
+        "char": "/",
+        "codepoint": "U+002F",
+        "count": 4
+      },
+      {
+        "char": "Q",
+        "codepoint": "U+0051",
+        "count": 4
+      },
+      {
+        "char": "ù",
+        "codepoint": "U+00F9",
+        "count": 5
+      },
+      {
+        "char": "`",
+        "codepoint": "U+0060",
+        "count": 6
+      },
+      {
+        "char": "ì",
+        "codepoint": "U+00EC",
+        "count": 6
+      },
+      {
+        "char": "á",
+        "codepoint": "U+00E1",
+        "count": 6
+      },
+      {
+        "char": "X",
+        "codepoint": "U+0058",
+        "count": 7
+      },
+      {
+        "char": "ó",
+        "codepoint": "U+00F3",
+        "count": 7
+      },
+      {
+        "char": "É",
+        "codepoint": "U+00C9",
+        "count": 8
+      },
+      {
+        "char": "8",
+        "codepoint": "U+0038",
+        "count": 9
+      },
+      {
+        "char": "ç",
+        "codepoint": "U+00E7",
+        "count": 11
+      },
+      {
+        "char": "&",
+        "codepoint": "U+0026",
+        "count": 11
+      },
+      {
+        "char": "ï",
+        "codepoint": "U+00EF",
+        "count": 14
+      },
+      {
+        "char": "ê",
+        "codepoint": "U+00EA",
+        "count": 15
+      },
+      {
+        "char": "7",
+        "codepoint": "U+0037",
+        "count": 17
+      },
+      {
+        "char": "ú",
+        "codepoint": "U+00FA",
+        "count": 17
+      }
+    ],
+    "has_uppercase": true,
+    "punctuation": [
+      "!",
+      "\"",
+      "&",
+      "'",
+      "(",
+      ")",
+      ",",
+      "-",
+      ".",
+      "/",
+      ":",
+      ";",
+      "<",
+      "=",
+      ">",
+      "?",
+      "`",
+      "«",
+      "»",
+      "×",
+      "“",
+      "”",
+      "⭐",
+      "️"
+    ]
+  },
+  "duplicates": {
+    "n_duplicate_texts": 12,
+    "n_clips_with_duplicated_text": 24,
+    "most_repeated": [
+      {
+        "count": 2,
+        "text": "awa namoni eza ndaku ndaku na lupango ndaku ya moulayi naba couleur different nde nazomona awa naba fenetre nde nazomona"
+      },
+      {
+        "count": 2,
+        "text": "ndenge nazali komona awa eza mbisi,nayebi te soki nakoki ko benga yango mbisi to nyama,eza oyo na monoko ya mi ndele ba "
+      },
+      {
+        "count": 2,
+        "text": "Carton ya kisi ya komela mpona kobikisa bokono ya nzoto."
+      },
+      {
+        "count": 2,
+        "text": "Liboso na ngai nazomona lokolo moko ya sapato ya basi eza likolo ya tapi."
+      },
+      {
+        "count": 2,
+        "text": "Abantu bali kutambula; omu omukyala aweese enku ku mutwe gwe, omulala taweese. Bonna batambula, aweese enku akutte omwan"
+      },
+      {
+        "count": 2,
+        "text": "Abaana batudde mu kibiina, wabula ng'abamu buli omu atunudde wuwe. Abamu batunudde eri ky'emmanga balaga balina bye bala"
+      },
+      {
+        "count": 2,
+        "text": "Ekifaananyi kino kirabikiramu obutambaala obw'enjawulo nga buzingiddwa era buli mu langi ez'enjawulo. Ku langi zino kuli"
+      },
+      {
+        "count": 2,
+        "text": "Ekizimbe ekigazi ekisiigiddwa langi eya kyenvu, langi eya kikuusikuusi ne langi emmyufu. Ku lubalaza lwakyo waliwo obupi"
+      },
+      {
+        "count": 2,
+        "text": "Abakyala abawerako nga bali mu nnimiro abamu bakutamye bayina bye banoga oba bye bakuula, waliwo atudde waliwo n'omulala"
+      },
+      {
+        "count": 2,
+        "text": "Musikana munaku mutsvuku akashongedzwa nemhete mumusoro yesirivha. Anevhudzi dema netsiye dzitema akatsikitsira pasi."
+      }
+    ]
+  }
+}

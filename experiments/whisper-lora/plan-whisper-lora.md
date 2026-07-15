@@ -115,7 +115,7 @@ The other candidates are **held in reserve as the second backbone** for the S4 e
 
 ## 5. Why experiment‑00 scored where it did (diagnosis)
 
-Reading `notebooks/experiment-00/{train.py, infer.py, prepare_data.py}` against our data reveals several concrete, fixable causes. In rough order of impact:
+Reading `experiments/gemma3n-baseline/{train.py, infer.py, prepare_data.py}` against our data reveals several concrete, fixable causes. In rough order of impact:
 
 1. **Label truncation — the big one.** `train.py` sets `--max-seq-length 64`. Our transcripts average **150–208 characters** ≈ **40–70+ tokens**, and the sequence *also* includes the system+user prompt and audio placeholder tokens. So during training the *correct answer is being cut off* — the model literally never sees full targets. It learns to stop early → deletions → high WER. **Fix:** raise to ≥ 256 (measure the token‑length distribution and set to ~p99).
 2. **Inference truncation.** `infer.py` uses `--max-new-tokens 128`. A 208‑char Luganda sentence can exceed 128 tokens → the tail is chopped off at generation time too. **Fix:** raise to ~256–320.
@@ -187,7 +187,7 @@ A simpler equivalent for a first pass: **duplicate Luganda examples ~2×** in th
 
 ## 7. Training configuration (the core of experiment‑01)
 
-Create `notebooks/experiment-01/` by copying experiment‑00's four files and editing. Below are the **recommended settings**, with the winners' exact values in the Qwen column for faithful repurposing.
+Create `experiments/whisper-lora/` by copying experiment‑00's four files and editing. Below are the **recommended settings**, with the winners' exact values in the Qwen column for faithful repurposing.
 
 ### 7a. Whisper‑large‑v3 (recommended primary)
 
@@ -370,7 +370,7 @@ Fork experiment‑00 → experiment‑01; swap the model loader to Whisper.
 
 ## 14. First actions
 
-1. `cp -r notebooks/experiment-00 notebooks/experiment-01`; swap the model loader from Gemma 3n to `openai/whisper-large-v3`.
+1. `cp -r experiments/gemma3n-baseline experiments/whisper-lora`; swap the model loader from Gemma 3n to `openai/whisper-large-v3`.
 2. Run the **token‑length audit** and **audio‑duration audit** (§6) — these set `max_target_length` and the >30 s policy in minutes.
 3. **Wire WER/CER eval into training** (`predict_with_generate`, `metric_for_best_model="wer"`) so checkpoints are selected on the right signal from the very first run.
 4. Run **S1** (Whisper‑large‑v3 LoRA), decide the **Luganda token** (`sw` proxy), turn on α≈0.5 sampling, and submit.
