@@ -44,22 +44,33 @@ Config:
 - One **shared** vocab across the three languages (single head, language‑agnostic) — validated by the fact that a shared Latin‑script vocab covers all three.
 - This makes MMS emit cased+punctuated text directly, so it competes on CER whether or not the leaderboard normalizes. (We still run the "does Zindi lowercase?" check from the exp‑01 report — but the cased vocab means we win either way.)
 
-### 2c. Data‑cleaning pipeline (validated on WAXAL by [2606.02375 §3.2](https://arxiv.org/pdf/2606.02375))
-Run once, produce a cleaned manifest reused by all runs:
-1. **Drop corrupt/empty** audio or transcripts.
-2. **Duration floor:** drop clips **< 1.5 s**.
-3. **Speech‑rate filter:** drop clips where `num_words / duration > 4` (physically impossible → corrupt reference). *The paper reports this alone took Lingala WER from 113.5% → 49.0%.*
-4. **Truncated‑reference check:** scan our three languages for the mid‑sentence truncation artifacts the paper found (references that stop while audio continues) — flag/drop; report the count per language.
-5. **Text normalization:** NFC unicode, unescape CSV quotes, collapse whitespace — **keep case & punctuation** (unlike MMS default).
-6. **Dedup** exact `(audio, text)`.
-7. **Model‑agreement cleaning (optional, from MMS §3.1.6):** score training labels with our exp‑01 Whisper model (or the first MMS model), drop the worst‑agreement tail — targets noisy Lingala labels.
-- Emit a **per‑language before/after report** (counts, hours, drop reasons) so we know exactly what changed.
+### 2c. Data‑cleaning pipeline — **thresholds set by our own EDA, not imported**
 
-### 2d. Managing clips longer than 30 s (the concern that motivated this pivot)
-CTC removes the hard cap, so we have options Whisper didn't:
-- **Train directly on longer clips** up to a memory‑bounded limit (e.g. ≤ 40 s) — no truncation, no dropping. Bucket by duration to keep batches memory‑even.
-- **Very long clips** (rare): segment with **MMS forced alignment** ([2305.13516 §3.1.3](https://arxiv.org/pdf/2305.13516), native `lin/lug/sna` support) or VAD into ≤ ~30 s aligned pieces — recovering the ~6% experiment‑01 dropped (disproportionately Luganda).
-- **Inference:** CTC transcribes arbitrary‑length audio in one pass → **no chunking/stitching needed at test time** (a clean win over Whisper's windowing).
+> Fully specified by [`report-mms-ctc-eda.md`](report-mms-ctc-eda.md). We downloaded all 38,199 clips raw and measured before filtering — which mattered: the paper's headline `wps>4` lever does **not** transfer (it fires on 6.4%/2.2%/**0%** of lin/sna/lug, and their 113.5→49.0 result was zero‑shot Whisper‑Tiny, a different regime).
+
+Run once (offline, from the local metadata CSV — no GPU), producing a frozen manifest reused by all runs:
+
+1. **Drop the corpus corruption** — ~1,400 clips whose audio is truncated to exactly **1.008/1.045 s** while keeping a full 12–44 word transcript (11–44 words/sec = physically impossible). **Verified corpus‑side**: the Hub itself serves 48,384 samples @ 48 kHz with a matching transcript, so our decode is faithful. Catch with **`duration < 1.5 s`** (belt‑and‑braces: **`wps > 4`** catches the same clips). Cost: lin **6.43%** / sna 2.24% / lug 0% of *clips* but only **0.35%/0.11%/0% of audio hours**.
+   - It is **speaker‑scoped**, not random: 15 lin / 9 sna speakers, most **100% corrupt** (one lin speaker = 796/796 = 76% of all lin corruption). Cleaning removes ~5 lin speakers entirely (96→~91) — but they were never learnable.
+   - **experiment‑01 trained on every one of these** → a plausible cause of its Lingala wall and Whisper's repetition/hallucination.
+2. **Drop empty transcripts** — exactly 1 clip (lin, 17.7 s, 0 words).
+3. **No upper duration drop** — see §2d.
+4. **Keep low‑words/sec clips** — *not* a truncated‑reference artifact: the same pattern appears in `lug`, which has zero corruption. It's natural pausing in image‑prompted spontaneous speech; CTC handles silence with blanks. Flag only.
+5. **Text normalization:** NFC, unescape CSV quotes, collapse whitespace — **keep case & punctuation** (unlike MMS's default lowercasing), plus a **character normalization map** for the 39 junk chars found (emoji `⭐`+`U+FE0F`, smart quotes `“ ”`, guillemets `« »`, `×`, Latin‑Extended singletons `ĝ þ œ Ķ ķ Ĺ Œ Ŋ ā ĺ`). **Keep** the legitimate French‑influenced diacritics (`é à ï ê ç ù û ü ò ó á ì ú`).
+6. **Dedup:** negligible (12 texts over 24 clips) — no action needed.
+7. **Corrupt clips' TEXT → the KenLM corpus (§2f)** — their transcripts are valid; only the audio is broken. Don't waste ~1,400 real sentences.
+8. **Model‑agreement label cleaning (later, optional; MMS §3.1.6):** score train labels with a first model and drop the worst‑agreement tail.
+
+Emit a **per‑language before/after report** (counts, hours, drop reasons). Net: keep **~99.6% of audio hours**, remove ~1,400 hallucination‑teaching examples.
+
+### 2d. Long clips — **RESOLVED: there is no long‑audio problem**
+
+The EDA settled the concern that partly motivated this pivot: **the longest clip in the entire dataset is 46.04 s**, nothing ≥ 60 s, and the long clips are *legitimate* (lug max 46.0 s @ 65 words, wps 1.41 — normal speech).
+
+- **Keep 100% of clips.** With CTC's no‑cap and a bound of **~46 s** we drop *nothing*. `lin` (max 37.3 s) and `sna` (max 35.9 s) lose zero; only `lug` has anything >40 s (395 clips) — so an earlier 40 s bound would have needlessly discarded them.
+- **No forced alignment, no segmentation, no VAD.** There is nothing long enough to need it. *(This deletes the old Stage‑4 "recover long clips" workstream entirely.)*
+- **Inference:** CTC transcribes any length in one pass → **no chunking/stitching** (a clean win over Whisper's 30 s windowing, which had forced us to drop ~6% of training and chunk at test).
+- **The one real consequence:** durations span **1.5–46 s**, so **length‑grouped batching** is required to keep memory even (46 s ⇒ ~2,300 wav2vec2 frames).
 
 ### 2e. Training config (CTC) + regularization
 - **Loss:** CTC loss (`Wav2Vec2ForCTC`), `ctc_zero_infinity=True` (guards against inf loss on bad alignments).
@@ -84,16 +95,43 @@ CTC removes the hard cap, so we have options Whisper didn't:
 ---
 
 ## 3. Evaluation & metric
-- Reuse the exp‑01 harness: **per‑language WER/CER, macro + micro**, on the full validation set (final) and a balanced subset (during training). CTC eval is *fast* (no autoregressive generation) — a big iteration‑speed win over Whisper.
-- **Cased vs normalized:** report both; run one controlled leaderboard submission to learn Zindi's normalization (case/punct sensitivity), then align our reported metric to it.
-- Public test set stays **evaluation‑only** (never trained on), per the standing rule.
+
+**We build our own SPEAKER‑DISJOINT validation split.** The EDA found the provided split is **~100% speaker‑leaked** (lin 99.95%, sna 99.77%, lug 99.25% of val clips have a speaker seen in training). So experiment‑01's validation was scoring **memorised voices**, while **Phase 2 is unseen speakers** — it never measured what the competition rewards.
+
+- **Split rules:** clean **first**, then split **by `speaker_id`** (else we'd hold out speakers whose clips all vanish). No speaker above **5% of a language's clips** may sit in val (keeps Lingala's 1,737-clip speaker in train, where it's useful, and out of val, where it would dominate).
+- **The real tension — train diversity vs. val stability.** Holding out clip-mass costs *voices*, and train speaker diversity is what drives generalisation. Measured at a fixed ~10% clip budget (`--val-speakers-per-lang`), Lingala's **train** speakers go **74 → 70 → 42 → 34** as we ask for 10/15/25/40 val voices. **Default 15** keeps **77% of Lingala's voices in train** while still holding out 15 per language. *(A naive "hold out many small speakers" rule left Lingala with 34 of 91 — it optimised val and gutted the thing that actually matters.)*
+
+- **Gender is stratified too.** Picking speakers purely by size let gender land lopsided (lin val 80% male, sna 78% female) — with only ~15–25 val voices that happens by chance and biases the estimate toward one voice type. Each gender bucket is now filled **in proportion to that language's own clip-level mix**. Buckets below `--min-gender-share` (lug's `unknown`, 0.9%) are excluded from val and kept in train — a speaker-level pick can't hit a 6-clip budget without overshooting it 9×.
+- **Where the constraints collide (Lingala only).** Its ~85 voices can't satisfy all three of {train diversity, gender balance, no val domination}. Measured: a 0.10 val‑share cap holds the top voice to 9.0% but skews val to **33F/67M** (population 54/46); 0.15 allows 14.8% and gets **59F/41M**. We take **0.15** — a *systematic* gender bias is worse than one noisy speaker. lug/sna don't bind (6.8%/9.3%).
+
+**Realized split** (`clean_split.py`, seed 42 — frozen in `manifests/`, reproducible offline):
+
+| Lang | train clips / speakers | val clips / speakers | val % | top val speaker | val gender vs population |
+|---|---|---|---:|---:|---|
+| lin | 13,667 / **60** (72.6 h) | 1,530 / 25 (8.3 h) | 10.1% | 14.8% | 59F/41M vs 54/46 |
+| lug | 5,476 / **323** (37.9 h) | 643 / 16 (4.0 h) | 10.5% | 6.8% | 50F/50M vs 46/53 |
+| sna | 13,902 / **138** (80.4 h) | 1,580 / 15 (8.9 h) | 10.2% | 9.3% | 55F/45M vs 57/43 |
+| **total** | **33,045 / 520** (190.3 h) | **3,753 / 57** (21.2 h) | 10.2% | — | within ~4 pp everywhere |
+
+Verified **0 speaker overlap**. Cleaning first shrank the pools as expected (lin 96→85, sna 160→153 speakers — the 100%-corrupt ones vanished entirely; lug unchanged at 339).
+- **Expect the honest number to be worse than experiment‑01's** — that's the point. A speaker‑disjoint score that tracks Phase 2 beats a flattering one that doesn't.
+- **Metrics:** per‑language **WER/CER, macro + micro**, on the full held‑out split (final) and a balanced subset (during training). CTC eval is *fast* — no autoregressive generation, a big iteration‑speed win over Whisper.
+- **Cased vs normalized:** report both; one controlled leaderboard submission tells us Zindi's case/punct sensitivity. The cased vocab (§2b) means we're covered either way.
+- **Public test set stays evaluation‑only** (never trained on). Note the organisers state the **Phase‑2 test set — which decides awards — is clean**, so any corruption in the *public* split is an artifact we can't act on; our public‑LB Lingala number may be **pessimistic** and we should not tune to it.
 
 ## 4. Staged plan
-- **S1 — Data pipeline:** cleaning (§2c) + cased vocab (§2b) + duration audit + long‑clip policy (§2d). Ship the per‑language before/after report.
-- **S2 — MMS‑1B fine‑tune (CTC):** full‑transformer FT (freeze CNN), regularized (§2e), per‑language WER/CER checkpointing. Ablate frozen‑encoder vs full‑transformer. Submit greedy‑decoded.
-- **S3 — LM decoding:** KenLM + pyctcdecode beam search; tune α/β/beam; measure the Lingala WER delta. Submit.
-- **S4 — Recover long clips + optional label cleaning:** fold in forced‑aligned >30 s segments and model‑agreement‑cleaned data; retrain.
-- **S5 — Ensemble with Whisper‑v1:** combine MMS (Bantu/CER, LM word boundaries) + Whisper‑large‑v3 (AR disambiguation) — the family‑split finding says they're complementary.
+
+| Stage | What | Status |
+|---|---|---|
+| **1a** | **Raw download** — all 38,199 clips, unfiltered, incl. `speaker_id`/`gender`; emits the portable metadata CSV | ✅ **done** |
+| **1b** | **EDA + verification** — distributions, threshold sweep, extremes; corruption verified corpus‑side; speaker metadata analysed | ✅ **done** → [`report-mms-ctc-eda.md`](report-mms-ctc-eda.md) |
+| **1c** | **Freeze the training set** — cleaning (§2c), **speaker‑disjoint split** (§3), **cased CTC vocab + normalization map** (§2b), **KenLM corpus** (§2f). Ran **offline from the metadata CSV — no GPU** | ✅ **done** → `manifests/`, `vocab/`, `lm/`, `clean_split_report.json` |
+| **2** | **MMS‑1B CTC fine‑tune** — full‑transformer FT (freeze CNN), regularized (§2e), length‑grouped batching, per‑language WER/CER checkpointing + one cheap adapter‑only control run. Then **checkpoint‑average the top 3** (gated: kept only if it beats the single best) and **push the model to the HF Hub**. Submit greedy‑decoded | 🔨 **built** (`src/train_ctc.py`, `average_checkpoints.py`, `push_model.py`; run book: `src/RUN.md`) — not yet run |
+| **3** | **KenLM decoding** — pyctcdecode beam search; tune α/β/beam; measure the Lingala WER delta. Submit | |
+| **4** | **Label cleaning** — model‑agreement filtering of noisy train labels; retrain. *(The old "recover long clips via forced alignment" is **deleted** — the EDA showed max clip = 46 s, nothing to recover.)* | |
+| **5** | **Ensemble with whisper‑lora** — MMS (Bantu/CER, LM word boundaries) + Whisper‑large‑v3 (AR disambiguation); the family‑split finding says they're complementary | |
+
+**Stage 1c is the bridge from analysis to training:** it turns the raw download + EDA findings into the exact, frozen, inspectable training set Stage 2 consumes — deterministic, cheap, reproducible across git commits, and buildable before we spin a box.
 
 ## 5. Risks & mitigations
 | Risk | Mitigation |
@@ -103,12 +141,88 @@ CTC removes the hard cap, so we have options Whisper didn't:
 | Shared multilingual head weaker than per‑language | Justified by no‑lang‑id constraint; α‑sampling balances; ablate a per‑language‑then‑merge variant if needed |
 | KenLM tooling / build friction | `pyctcdecode`+`kenlm` are standard; greedy is the always‑works fallback |
 | Lingala stays hard | Expected — even MMS‑300M FT ≈ 42% WER; focus wins on CER + LM word boundaries; ensemble as the finisher |
-| 1B FT memory on 40 GB | 8‑bit AdamW + grad checkpointing + duration bucketing + batch 4 × accum |
+| **Lingala is speaker‑poor → weak speaker generalisation** | Only **96 speakers** for 16,244 clips (top speaker = 10.7%), vs lug's 339 for 6,119 — and speaker diversity rank‑orders exp‑01 WER exactly. Phase 2 = unseen speakers, so this is a first‑class risk: rely on the speaker‑disjoint split to *see* it, plus speaker‑invariance augmentation (SpecAugment, LayerDrop, optional speed‑perturb) to mitigate it. |
+| **Speaker‑disjoint val is a small‑sample estimate** | lin has ~91 speakers post‑cleaning, so a held‑out slice is high‑variance. Hold out many *small* speakers; report per‑language n; consider GroupKFold if a decision hinges on a small delta. |
+| 1B FT memory on 40 GB | 8‑bit AdamW + grad checkpointing + **length‑grouped batching** (1.5–46 s span) + batch 4 × accum |
 
-## 6. Compute & tooling
-- **Hardware:** single A100‑40GB (vast.ai), same layout as exp‑01 (`data/` + scripts siblings; `prepared/`, `artifacts/`).
-- **Libs:** `transformers` (`Wav2Vec2ForCTC`, MMS classes), `datasets`, `torchaudio` (forced alignment), `bitsandbytes` (8‑bit optim), `pyctcdecode` + `kenlm` (LM decoding), `jiwer`.
-- **Reuse:** exp‑01's `common.py` helpers (per‑language metrics, normalization, logging, zip‑before‑destroy), adapting the collator/model‑loading for CTC.
+## 6. Compute, tooling & running it
+
+- **Hardware:** single A100‑40GB (vast.ai). Versioned by **git commits** (no `vN` folders).
+- **Libs:** `transformers` (`Wav2Vec2ForCTC`, MMS classes), `datasets`, `bitsandbytes` (8‑bit optim), `pyctcdecode` + `kenlm` (LM decoding), `jiwer`. *(`torchaudio` forced alignment is no longer needed — §2d.)*
+- **Reuse:** `whisper-lora`'s `common.py` helpers (per‑language metrics, text normalization, logging, zip‑before‑destroy), adapted to a CTC collator/model.
+
+### Layout
+**Everything hangs off one folder and all paths auto‑resolve** — no flags needed. The code supports the two layouts we actually use, via `common.workdir()`:
+
+```
+# vast.ai (how we run) — scripts FLAT in the folder:
+folder/
+  data/          Train.csv, Test.csv, SampleSubmission.csv, waxal_clip_metadata.csv
+  *.py           common.py prepare_data.py eda.py verify_data.py clean_split.py train_ctc.py
+  prepared/      <- 1a writes raw 16 kHz Arrow chunks
+  manifests/     <- 1c writes the frozen speaker-disjoint split
+  vocab/  lm/    <- 1c writes the cased CTC vocab + KenLM corpus
+  artifacts/     <- Stage 2 writes model + logs
+
+# repo checkout — same tree, code under src/:
+experiments/mms-ctc/{src/*.py, manifests/, vocab/, lm/, artifacts/}   (data/ at the repo root)
+```
+`data_dir()` finds `data/Train.csv` (flat) *or* `data/google-waxal-.../Train.csv` (repo) by walking up. Never use `SCRIPT_DIR.parent` in a script — on the flat layout it escapes to `/`; use `workdir()`.
+
+### Commands
+Run from inside the folder (`python <script>.py`); in the repo prefix with `src/`.
+```bash
+export HF_TOKEN=hf_...            # to stream google/WaxalNLP
+
+# 1a — raw download (all clips, unfiltered, + speaker_id/gender + metadata CSV)
+python prepare_data.py --max-examples-per-language 100   # smoke test first
+python prepare_data.py                                   # full
+
+# 1b — EDA + verification (metadata only; no audio decode; fast to re-run)
+python eda.py
+python verify_data.py                                    # corruption + speaker checks
+
+# 1c — freeze the training set (OFFLINE from the metadata CSV — no GPU, no download)
+python clean_split.py
+
+# 2 — MMS-1B CTC fine-tune (reads manifests/ + vocab/ + prepared/)
+python train_ctc.py --num-train-epochs 0.05 --eval-steps 10   # smoke test first
+python train_ctc.py                                           # full FT — the primary
+python train_ctc.py --train-mode adapter --artifact-dir artifacts/mms-1b-adapter   # control
+
+# 2b — checkpoint-average + save off-box. BOTH must run BEFORE teardown.
+python average_checkpoints.py                                 # top 3, gated on full val
+python push_model.py --repo-id <user>/waxal-mms-1b-ctc        # ~3.9 GB, private
+```
+Step-by-step run book with checks, teardown checklist and gotchas: **[`src/RUN.md`](src/RUN.md)**.
+
+**Two things that cannot be done retroactively** (the box takes them with it):
+- **Checkpoint averaging** needs the `checkpoint-*/` dirs — hence `--save-total-limit 3` (~6 GB each: 3.9 GB fp32 weights + ~2 GB 8-bit optimizer state, on top of ~49 GB of prepared audio). It's **gated**: we score the average *and* the single best on the full speaker-disjoint val and keep the average only if it wins — averaging usually helps (flatter minimum → better unseen-speaker generalisation, free at inference) but not always, and shipping a worse model because the technique is fashionable would be silly.
+- **Storing the model.** A full-FT MMS-1B is ~3.9 GB — push it to the **HF Hub (private)** rather than downloading through the browser; a fresh box pulls it back with `from_pretrained("<user>/<repo>")`. (Kaggle Datasets works too but needs separate credentials and isn't model-shaped.) Checkpoint dirs are excluded from the upload — they're only useful on-box.
+
+**Realized Stage-2 config** (`src/train_ctc.py` defaults, all overridable):
+
+| | value | why |
+|---|---|---|
+| scope | full transformer FT, **CNN feature extractor frozen** | canonical wav2vec2 recipe; our data is medium‑resource (§2a) |
+| head | fresh **cased** CTC head, vocab **103** | MMS lowercases by default; half our metric is CER on cased text |
+| lr | body **3e‑5** / head **1e‑4** (two param groups) | pretrained layers move slowly, the fresh head doesn't |
+| optim | **8‑bit AdamW** + grad checkpointing + bf16 | fits a 1B full FT in 40 GB |
+| batch | 4 × accum 4 = **16**, `group_by_length` on `input_length` | clips span 1.5–46 s |
+| regularization | SpecAugment `mask_time 0.065`/`mask_feature 0.10`, LayerDrop 0.1, dropout 0.05 | counters the whisper‑lora overfit |
+| epochs | 8, early stopping (patience 4) on `combined` | CTC needs more epochs than seq2seq LoRA |
+| selection | per‑language WER/CER → `combined` (macro) | never loss |
+
+### Outputs
+| Stage | Artifact | Why it matters |
+|---|---|---|
+| 1a | `prepared/waxal-raw/{train,validation}/<lang>/` | Raw Arrow chunks (`id, audio, transcription` [cased], `language, duration, speaker_id, gender`). Nothing dropped. |
+| 1a | **`data/waxal_clip_metadata.csv`** (~4 MB, 38,199 rows, 595 speakers) | **The one file to keep.** Every cleaning/split decision is answerable from it offline — no GPU, no re‑download. |
+| 1b | `eda_logs/{eda_report,verify_corruption,verify_metadata,speaker_summary}.json` | Distributions, threshold sweep, the corruption verdict, speaker leakage. |
+| 1c | `manifests/{train,val}.csv` + `vocab/vocab.json` + `lm/corpus.txt` + `clean_split_report.json` | The frozen, inspectable training set Stage 2 consumes. Small enough to commit — the split is reproducible from git. |
+| 2 | `artifacts/mms-1b-all/` — best model + processor + `logs/{train_ctc.log, metrics.jsonl, run_config.json, trainer_log_history.json, final_eval_full_val.json}` | The honest speaker‑disjoint number lands in `final_eval_full_val.json`. **Full‑FT checkpoints are GBs** (unlike whisper‑lora's ~200 MB adapters) — `save_total_limit=2`; grab the logs + the final model before teardown. |
+
+**Why raw‑download‑then‑analyse:** the download is the expensive step; cleaning decisions are cheap. Materialise once → EDA → *then* pick thresholds, so changing one costs seconds instead of a re‑download, and we see exactly what a filter removes before committing. It already paid off — the paper's `wps>4` lever fires on **0%** of Luganda, so importing thresholds on faith would have been a mistake.
 
 ## 7. Expected outcome
 - Bigger **CER** gains (MMS leads CER on Bantu) → directly lifts the metric.

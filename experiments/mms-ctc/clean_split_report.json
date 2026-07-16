@@ -1,0 +1,295 @@
+{
+  "config": {
+    "metadata": "/Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv",
+    "train_csv": "/Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/Train.csv",
+    "out_dir": "/Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc",
+    "min_duration_sec": 1.5,
+    "max_words_per_sec": 4.0,
+    "max_duration_sec": null,
+    "val_frac": 0.1,
+    "seed": 42,
+    "val_speakers_per_lang": 15,
+    "val_max_speaker_frac": 0.05,
+    "val_max_speaker_share_of_val": 0.15,
+    "min_gender_share": 0.05
+  },
+  "cleaning": {
+    "lin": {
+      "clips_before": 16244,
+      "clips_after": 15197,
+      "clips_dropped": 1047,
+      "clip_drop_pct": 6.45,
+      "hours_before": 81.19,
+      "hours_after": 80.88,
+      "hours_lost_pct": 0.37,
+      "drops": {
+        "corrupt_short": 1044,
+        "corrupt_fast": 2,
+        "empty": 1
+      }
+    },
+    "lug": {
+      "clips_before": 6119,
+      "clips_after": 6119,
+      "clips_dropped": 0,
+      "clip_drop_pct": 0.0,
+      "hours_before": 41.86,
+      "hours_after": 41.86,
+      "hours_lost_pct": 0.0,
+      "drops": {}
+    },
+    "sna": {
+      "clips_before": 15836,
+      "clips_after": 15482,
+      "clips_dropped": 354,
+      "clip_drop_pct": 2.24,
+      "hours_before": 89.44,
+      "hours_after": 89.34,
+      "hours_lost_pct": 0.11,
+      "drops": {
+        "corrupt_short": 354
+      }
+    }
+  },
+  "split": {
+    "lin": {
+      "total_clips": 15197,
+      "total_speakers": 85,
+      "val_speakers": 25,
+      "val_clips": 1530,
+      "val_clip_pct": 10.07,
+      "train_speakers": 60,
+      "train_clips": 13667,
+      "val_hours": 8.28,
+      "train_hours": 72.6,
+      "largest_val_speaker_share_of_val_pct": 14.84,
+      "val_gender": {
+        "male": 633,
+        "female": 897
+      },
+      "val_gender_pct": {
+        "female": 58.6,
+        "male": 41.4
+      },
+      "language_gender_pct": {
+        "female": 54.2,
+        "male": 45.8
+      }
+    },
+    "lug": {
+      "total_clips": 6119,
+      "total_speakers": 339,
+      "val_speakers": 16,
+      "val_clips": 643,
+      "val_clip_pct": 10.51,
+      "train_speakers": 323,
+      "train_clips": 5476,
+      "val_hours": 4.02,
+      "train_hours": 37.85,
+      "largest_val_speaker_share_of_val_pct": 6.84,
+      "val_gender": {
+        "male": 322,
+        "female": 321
+      },
+      "val_gender_pct": {
+        "female": 49.9,
+        "male": 50.1
+      },
+      "language_gender_pct": {
+        "female": 46.0,
+        "male": 53.0,
+        "unknown": 0.9
+      }
+    },
+    "sna": {
+      "total_clips": 15482,
+      "total_speakers": 153,
+      "val_speakers": 15,
+      "val_clips": 1580,
+      "val_clip_pct": 10.21,
+      "train_speakers": 138,
+      "train_clips": 13902,
+      "val_hours": 8.91,
+      "train_hours": 80.43,
+      "largest_val_speaker_share_of_val_pct": 9.3,
+      "val_gender": {
+        "male": 709,
+        "female": 871
+      },
+      "val_gender_pct": {
+        "female": 55.1,
+        "male": 44.9
+      },
+      "language_gender_pct": {
+        "female": 56.9,
+        "male": 43.1
+      }
+    }
+  },
+  "split_is_speaker_disjoint": true,
+  "vocab": {
+    "vocab_size": 103,
+    "n_chars_from_data": 100,
+    "per_language_distinct": {
+      "lin": 94,
+      "lug": 69,
+      "sna": 81
+    },
+    "has_uppercase": true,
+    "punctuation": [
+      "!",
+      "\"",
+      "&",
+      "'",
+      "(",
+      ")",
+      ",",
+      "-",
+      ".",
+      "/",
+      ":",
+      ";",
+      "<",
+      "=",
+      ">",
+      "?"
+    ],
+    "rare_under_20": [
+      {
+        "char": "<",
+        "codepoint": "U+003C",
+        "count": 1
+      },
+      {
+        "char": "û",
+        "codepoint": "U+00FB",
+        "count": 2
+      },
+      {
+        "char": "ü",
+        "codepoint": "U+00FC",
+        "count": 2
+      },
+      {
+        "char": "=",
+        "codepoint": "U+003D",
+        "count": 2
+      },
+      {
+        "char": ">",
+        "codepoint": "U+003E",
+        "count": 2
+      },
+      {
+        "char": "Q",
+        "codepoint": "U+0051",
+        "count": 3
+      },
+      {
+        "char": "ò",
+        "codepoint": "U+00F2",
+        "count": 3
+      },
+      {
+        "char": "/",
+        "codepoint": "U+002F",
+        "count": 4
+      },
+      {
+        "char": "ù",
+        "codepoint": "U+00F9",
+        "count": 4
+      },
+      {
+        "char": "É",
+        "codepoint": "U+00C9",
+        "count": 5
+      },
+      {
+        "char": "á",
+        "codepoint": "U+00E1",
+        "count": 5
+      },
+      {
+        "char": "X",
+        "codepoint": "U+0058",
+        "count": 6
+      },
+      {
+        "char": "ì",
+        "codepoint": "U+00EC",
+        "count": 6
+      },
+      {
+        "char": "ó",
+        "codepoint": "U+00F3",
+        "count": 7
+      },
+      {
+        "char": "ï",
+        "codepoint": "U+00EF",
+        "count": 8
+      },
+      {
+        "char": "ç",
+        "codepoint": "U+00E7",
+        "count": 9
+      },
+      {
+        "char": "8",
+        "codepoint": "U+0038",
+        "count": 9
+      },
+      {
+        "char": "&",
+        "codepoint": "U+0026",
+        "count": 10
+      },
+      {
+        "char": "ê",
+        "codepoint": "U+00EA",
+        "count": 10
+      },
+      {
+        "char": "ú",
+        "codepoint": "U+00FA",
+        "count": 14
+      },
+      {
+        "char": "7",
+        "codepoint": "U+0037",
+        "count": 15
+      },
+      {
+        "char": "â",
+        "codepoint": "U+00E2",
+        "count": 18
+      },
+      {
+        "char": "5",
+        "codepoint": "U+0035",
+        "count": 19
+      }
+    ]
+  },
+  "lm_corpus": {
+    "lines": 34444,
+    "words": 909027,
+    "path": "/Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt"
+  },
+  "totals": {
+    "clips_before": 38199,
+    "clips_after": 36798,
+    "train_clips": 33045,
+    "val_clips": 3753,
+    "clips_per_speaker_after": {
+      "n": 577,
+      "min": 1.0,
+      "p50": 17.0,
+      "p90": 166.19999999999993,
+      "p99": 769.44,
+      "max": 1737.0,
+      "mean": 63.77469670710572
+    }
+  }
+}

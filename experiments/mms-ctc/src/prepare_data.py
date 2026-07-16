@@ -33,7 +33,6 @@ import time
 from collections import Counter, defaultdict
 
 from common import (
-    SCRIPT_DIR,
     data_dir,
     detect_id_key,
     fmt_duration,
@@ -84,8 +83,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--languages", nargs="+", default=None)
     p.add_argument("--sample-rate", type=int, default=16_000)
     p.add_argument("--output-dir", default=str(prepared_dir()))
-    p.add_argument("--metadata-out", default=str(SCRIPT_DIR / "metadata" / "waxal_clip_metadata.csv"),
-                   help="Small per-clip metadata CSV (no audio) — download & keep this locally.")
+    p.add_argument("--metadata-out", default=str(data_dir() / "waxal_clip_metadata.csv"),
+                   help="Small per-clip metadata CSV (no audio). Written next to Train.csv, which "
+                        "is exactly where clean_split.py looks for it — download & keep it locally.")
     p.add_argument("--max-examples-per-language", type=int, default=None,
                    help="Cap clips per (language, split); unset = everything. Use e.g. 100 to smoke test.")
     p.add_argument("--skip-existing", action=argparse.BooleanOptionalAction, default=True)

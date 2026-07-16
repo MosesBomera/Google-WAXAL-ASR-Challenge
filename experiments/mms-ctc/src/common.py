@@ -30,28 +30,45 @@ TARGET_LANGUAGES = ("lin", "sna", "lug")
 # Paths — robust to both the local repo and a flat vast.ai layout
 # ---------------------------------------------------------------------------
 
+def workdir() -> Path:
+    """The experiment root — everything (`data/`, `prepared/`, `manifests/`,
+    `vocab/`, `lm/`, `artifacts/`) hangs off this.
+
+    Supports both layouts we actually use:
+      * vast.ai (flat):   folder/*.py  +  folder/data/   -> workdir = folder
+      * repo checkout:    experiments/mms-ctc/src/*.py   -> workdir = experiments/mms-ctc
+
+    NEVER use SCRIPT_DIR.parent directly: on the flat layout that escapes to `/`.
+    """
+    return SCRIPT_DIR.parent if SCRIPT_DIR.name == "src" else SCRIPT_DIR
+
+
 def data_dir() -> Path:
-    """Folder holding Train.csv / Test.csv / SampleSubmission.csv.
-      * vast.ai (how we run):  ./data next to the scripts, CSVs directly inside.
-      * local checkout:        data/google-waxal-.../ somewhere above this file.
-    Walks up parents so it works regardless of folder depth."""
-    candidates = [SCRIPT_DIR / "data"]
+    """Folder holding Train.csv / Test.csv / SampleSubmission.csv / metadata CSV.
+
+    Two layouts, checked at every level from here upward:
+      * flat (vast.ai):  <dir>/data/Train.csv
+      * repo checkout:   <dir>/data/google-waxal-.../Train.csv
+    """
+    candidates: list[Path] = []
     for up in [SCRIPT_DIR, *SCRIPT_DIR.parents]:
+        candidates.append(up / "data")                                            # flat
         candidates.append(up / "data" / "google-waxal-asr-challenge20260630-10570-elxebu")
     for c in candidates:
         if (c / "Train.csv").exists():
             return c
-    return candidates[0]
+    return workdir() / "data"
 
 
 def prepared_dir() -> Path:
-    """Where prepare_data.py writes RAW materialized audio chunks (no filtering).
-    Download once; EDA and cleaning are separate, cheap, re-runnable steps."""
-    return SCRIPT_DIR / "prepared" / "waxal-raw"
+    """Where prepare_data.py writes RAW audio chunks (no filtering) — a sibling of
+    src/, matching the layout in plan-mms-ctc.md §6 (and where the box already
+    has it: /workspace/prepared/waxal-raw)."""
+    return workdir() / "prepared" / "waxal-raw"
 
 
 def artifacts_dir() -> Path:
-    return SCRIPT_DIR / "artifacts" / "mms-1b-all"
+    return workdir() / "artifacts" / "mms-1b-all"
 
 
 # ---------------------------------------------------------------------------
@@ -189,6 +206,41 @@ def make_audio_to_array(sample_rate: int):
 
 _WS = re.compile(r"\s+")
 
+# Junk characters found by the EDA (report-mms-ctc-eda.md, Finding 5): 39 chars
+# occur <20x across 38k clips and are transcription noise. We MAP them to sane
+# ASCII rather than letting them into the CTC vocab (unlearnable at 1-3
+# occurrences) or routing to [UNK] (which would emit literal garbage).
+# NOTE: we deliberately KEEP the legitimate French-influenced Lingala diacritics
+# (é à ï ê ç ù û ü ò ó á ì ú) — those are real, not noise.
+CHAR_MAP = {
+    "“": '"', "”": '"',        # “ ”  smart quotes
+    "‘": "'", "’": "'",        # ‘ ’  smart apostrophes
+    "«": '"', "»": '"',        # « »  guillemets
+    "`": "'",                        # `    backtick
+    "×": "x",                        # ×    multiplication sign
+    "œ": "oe", "Œ": "OE",      # œ Œ
+    "þ": "th",                       # þ    thorn
+    "Ŋ": "Ng",                       # Ŋ    eng
+    "ĝ": "g",                        # ĝ
+    "ā": "a",                        # ā
+    "ĺ": "l", "Ĺ": "L",        # ĺ Ĺ
+    "Ķ": "K", "ķ": "k",        # Ķ ķ
+}
+# Emoji / zero-width modifiers — strip entirely.
+STRIP_CHARS = frozenset({"⭐", "️"})
+
+
+def normalize_chars(s: str) -> str:
+    """Applies the junk-character map + strips emoji. Idempotent."""
+    if not s:
+        return s
+    out = []
+    for ch in s:
+        if ch in STRIP_CHARS:
+            continue
+        out.append(CHAR_MAP.get(ch, ch))
+    return "".join(out)
+
 
 def normalize_text(s: Any, lower: bool = False) -> str:
     if s is None:
@@ -200,6 +252,12 @@ def normalize_text(s: Any, lower: bool = False) -> str:
     if lower:
         s = s.lower()
     return s
+
+
+def normalize_for_ctc(s: Any) -> str:
+    """The single normalization used for CTC labels, the vocab, the LM corpus and
+    scoring — they MUST agree or the metric is meaningless. Keeps case+punct."""
+    return _WS.sub(" ", normalize_chars(normalize_text(s))).strip()
 
 
 # ---------------------------------------------------------------------------
