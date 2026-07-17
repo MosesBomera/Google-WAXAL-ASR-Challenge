@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 /data
 *.zip
-*/*/training_artifacts
+*/*/training-artifacts
