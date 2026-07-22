@@ -1,0 +1,255 @@
+{
+  "vocab_size": 133,
+  "n_chars_from_data": 130,
+  "n_train_transcripts": 47293,
+  "specials": [
+    "|",
+    "[UNK]",
+    "[PAD]"
+  ],
+  "has_uppercase": true,
+  "punctuation": [
+    "!",
+    "\"",
+    "$",
+    "%",
+    "&",
+    "'",
+    "(",
+    ")",
+    "+",
+    ",",
+    "-",
+    ".",
+    "/",
+    ":",
+    ";",
+    "<",
+    "=",
+    ">",
+    "?",
+    "[",
+    "]",
+    "_",
+    "~",
+    "£",
+    "¥",
+    "°",
+    "–",
+    "—",
+    "…"
+  ],
+  "per_language_char_counts": {
+    "lin": 125,
+    "lug": 110,
+    "sna": 98
+  },
+  "chars_only_in_one_language": {
+    "lin": [
+      "=",
+      "~",
+      "Â",
+      "É",
+      "â",
+      "å",
+      "è",
+      "ê",
+      "ì",
+      "î",
+      "ï",
+      "ô",
+      "ù",
+      "û",
+      "ł",
+      "ǎ",
+      "ɔ",
+      "ɛ"
+    ],
+    "lug": [
+      "<",
+      ">",
+      "ŋ",
+      "ᵑ"
+    ],
+    "sna": [
+      "_"
+    ]
+  },
+  "rare_chars_under_20": [
+    {
+      "char": "~",
+      "count": 1,
+      "codepoint": "U+007E"
+    },
+    {
+      "char": "å",
+      "count": 1,
+      "codepoint": "U+00E5"
+    },
+    {
+      "char": "ǎ",
+      "count": 1,
+      "codepoint": "U+01CE"
+    },
+    {
+      "char": "<",
+      "count": 1,
+      "codepoint": "U+003C"
+    },
+    {
+      "char": "ł",
+      "count": 2,
+      "codepoint": "U+0142"
+    },
+    {
+      "char": "_",
+      "count": 2,
+      "codepoint": "U+005F"
+    },
+    {
+      "char": "=",
+      "count": 2,
+      "codepoint": "U+003D"
+    },
+    {
+      "char": ">",
+      "count": 2,
+      "codepoint": "U+003E"
+    },
+    {
+      "char": "ò",
+      "count": 3,
+      "codepoint": "U+00F2"
+    },
+    {
+      "char": "½",
+      "count": 4,
+      "codepoint": "U+00BD"
+    },
+    {
+      "char": "û",
+      "count": 4,
+      "codepoint": "U+00FB"
+    },
+    {
+      "char": "ş",
+      "count": 4,
+      "codepoint": "U+015F"
+    },
+    {
+      "char": "ă",
+      "count": 4,
+      "codepoint": "U+0103"
+    },
+    {
+      "char": "ğ",
+      "count": 4,
+      "codepoint": "U+011F"
+    },
+    {
+      "char": "ù",
+      "count": 4,
+      "codepoint": "U+00F9"
+    },
+    {
+      "char": "Â",
+      "count": 5,
+      "codepoint": "U+00C2"
+    },
+    {
+      "char": "Õ",
+      "count": 5,
+      "codepoint": "U+00D5"
+    },
+    {
+      "char": "õ",
+      "count": 5,
+      "codepoint": "U+00F5"
+    },
+    {
+      "char": "Ü",
+      "count": 5,
+      "codepoint": "U+00DC"
+    },
+    {
+      "char": "£",
+      "count": 6,
+      "codepoint": "U+00A3"
+    },
+    {
+      "char": "²",
+      "count": 6,
+      "codepoint": "U+00B2"
+    },
+    {
+      "char": "ì",
+      "count": 6,
+      "codepoint": "U+00EC"
+    },
+    {
+      "char": "ã",
+      "count": 7,
+      "codepoint": "U+00E3"
+    },
+    {
+      "char": "ö",
+      "count": 8,
+      "codepoint": "U+00F6"
+    },
+    {
+      "char": "¾",
+      "count": 8,
+      "codepoint": "U+00BE"
+    },
+    {
+      "char": "+",
+      "count": 9,
+      "codepoint": "U+002B"
+    },
+    {
+      "char": "¥",
+      "count": 9,
+      "codepoint": "U+00A5"
+    },
+    {
+      "char": "…",
+      "count": 10,
+      "codepoint": "U+2026"
+    },
+    {
+      "char": "[",
+      "count": 11,
+      "codepoint": "U+005B"
+    },
+    {
+      "char": "]",
+      "count": 11,
+      "codepoint": "U+005D"
+    },
+    {
+      "char": "°",
+      "count": 13,
+      "codepoint": "U+00B0"
+    },
+    {
+      "char": "ó",
+      "count": 15,
+      "codepoint": "U+00F3"
+    },
+    {
+      "char": "á",
+      "count": 18,
+      "codepoint": "U+00E1"
+    },
+    {
+      "char": "—",
+      "count": 18,
+      "codepoint": "U+2014"
+    },
+    {
+      "char": "â",
+      "count": 18,
+      "codepoint": "U+00E2"
+    }
+  ]
+}

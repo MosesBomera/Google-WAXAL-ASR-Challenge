@@ -1,0 +1,45 @@
+{
+  "afrivoice_lang": "Lingala",
+  "waxal_languages": [
+    "lin"
+  ],
+  "manifests": 84,
+  "audio_confirmations": 0,
+  "verdict": {
+    "n": 95508,
+    "test_hits": 1742,
+    "train_hits": 15197,
+    "val_hits": 0,
+    "no_match": 2100,
+    "dup_clips": 15197,
+    "dup_confirmed": 15191,
+    "dup_unconfirmed": 6,
+    "dup_spk_agree": 15191,
+    "dup_spk_disagree": 0,
+    "n_ext_speakers": 106,
+    "n_overlap_speakers": 86,
+    "val_speaker_clips": 0,
+    "overlap_speakers_sample": [
+      "08heleefdKTpZK60d2kN6Ec61V43",
+      "0dlBbw6Nd6Pk9S20GeKmV4wZwbx2",
+      "1A30jGPQoQcLFzluanP2XEGjKsD3",
+      "1QCzigweYBWBqtunTpm49It9KYx2",
+      "1bitowTD3gdJxPXVtOX9n9G2lGz1",
+      "217a3u2t6BMMytJPIXYZWyAHtNE2",
+      "2OmR5Y0KJbWRWHPHJyfQuSfM34I3",
+      "2vowXAOWTcQLzBOaSpQVwoccG9k1",
+      "2xqeSkTET4WoveuEbhYxFWMKvkW2",
+      "34jJTV4jITUWLMKvugE1OGTvEVr2"
+    ],
+    "train_overlap_frac": 0.1591,
+    "net_new_frac": 0.022,
+    "verdict": "BREACH RISK — 1742/95508 clips match WAXAL TEST transcripts. Exclude those before any use; if pervasive, reject the source. Speakers: 86/106 overlap WAXAL [id scheme looks GLOBAL: on confirmed dups 15191 agree / 0 disagree].",
+    "test_hit_examples": [
+      "Foto na moni liboso na nga eza foto ya place ba tekisaka ya masanga oyo ya kitoke pe ya talo.",
+      "Mwasi na mobali batelemi baomikangisa foto mobale asimbi mwasi na lipeka na se na bango eza gateau  ",
+      "Na elili tozali komona ezali logo, logo ango bakomi Nk oyo ezali logo ya kitoko tomoni eza na langi ",
+      "Awa nazomona kati ya balabala kamio moko eza wana ya monene kasi kuna nazomona ndako ya monene ya et",
+      "Awa esika balona biloko ekeseni naba nzete liboso"
+    ]
+  }
+}

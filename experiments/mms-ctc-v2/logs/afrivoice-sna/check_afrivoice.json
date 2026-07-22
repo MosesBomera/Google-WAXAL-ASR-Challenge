@@ -1,0 +1,45 @@
+{
+  "afrivoice_lang": "Shona",
+  "waxal_languages": [
+    "sna"
+  ],
+  "manifests": 88,
+  "audio_confirmations": 0,
+  "verdict": {
+    "n": 97240,
+    "test_hits": 1678,
+    "train_hits": 14950,
+    "val_hits": 0,
+    "no_match": 80612,
+    "dup_clips": 14950,
+    "dup_confirmed": 1777,
+    "dup_unconfirmed": 13173,
+    "dup_spk_agree": 1777,
+    "dup_spk_disagree": 0,
+    "n_ext_speakers": 234,
+    "n_overlap_speakers": 160,
+    "val_speaker_clips": 0,
+    "overlap_speakers_sample": [
+      "011NYZ63olfcf3Ga8ZZbuD9WGpX2",
+      "0B0oxTbCrKeSD3CojZrSlAt7Je93",
+      "0K6g2pMYkjdiw6rOFwrxQWD7mkR2",
+      "0V0O30nOtCOPDLoWZ1pSZpoGvYp1",
+      "0vXFInNdsqN57qQBnazTnRzbvBf1",
+      "13lBLON54icGjb0Hgg2OhJ5AgxJ2",
+      "1KMChoDMJ6SGnXzjJ5ex5y73YVF2",
+      "1PHOsx2JIpUU4lMLgTd3ssjITjf1",
+      "1gz9O02DnCVxvz0PaOOLQy4CQcJ2",
+      "1hsZ9plACwbUjolprhO9KPopzji2"
+    ],
+    "train_overlap_frac": 0.1537,
+    "net_new_frac": 0.829,
+    "verdict": "BREACH RISK — 1678/97240 clips match WAXAL TEST transcripts. Exclude those before any use; if pervasive, reject the source. Speakers: 160/234 overlap WAXAL [id scheme looks GLOBAL: on confirmed dups 1777 agree / 0 disagree].",
+    "test_hit_examples": [
+      "Turusi bhokisi ine ruvara rutema ine maturusi akasiyana siyana. Maturusi arikuwanikamo anosanganisir",
+      "Maturusi anoshandiswa mubindu anoti hara,foshoro,piki nebadza akazendamiswa pagaba.",
+      "Chikafu chakagadzikwa pamusoro petafura. Icho chinova icho begger chakagadzirwa zvakaisvonaka chaizv",
+      "Shangu mbiri dzinoratidza kuti imwe ndeye kuruboshwe imwe ndeye yekurudyi. Shangu idzi dzine ruvara ",
+      "Dzimba dzririmukati nechidziro chakavakwa chakadzitenderedza. Dzakashandisirwa zvidhinha zvakafanana"
+    ]
+  }
+}

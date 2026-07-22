@@ -1,0 +1,20 @@
+{
+  "external_id": "KasuleTrevor/Lingala_100hrs",
+  "waxal_languages": [
+    "lin"
+  ],
+  "external_total": 0,
+  "text_field": null,
+  "source_field": null,
+  "ref_sizes": {
+    "train": 16237,
+    "val": 0,
+    "test": 1865,
+    "speakers": 96,
+    "val_speakers": 0,
+    "text_dur": 16237,
+    "text_spk": 16237
+  },
+  "audio_probe": {},
+  "verdicts": {}
+}

@@ -1,0 +1,27 @@
+{
+  "lrsc_lang_folder": "lingala",
+  "waxal_languages": [
+    "lin"
+  ],
+  "records_scanned": 2940,
+  "verdict": {
+    "n": 2940,
+    "test_hits": 0,
+    "train_hits": 0,
+    "val_hits": 0,
+    "no_match": 2940,
+    "dup_clips": 0,
+    "dup_confirmed": 0,
+    "dup_unconfirmed": 0,
+    "dup_spk_agree": 0,
+    "dup_spk_disagree": 0,
+    "n_ext_speakers": 31,
+    "n_overlap_speakers": 0,
+    "val_speaker_clips": 0,
+    "overlap_speakers_sample": [],
+    "train_overlap_frac": 0.0,
+    "net_new_frac": 1.0,
+    "verdict": "INDEPENDENT — 100.0% net-new, train overlap 0.00%, no confirmed duplicates, no corruption fingerprint. SAFE to add to TRAIN (disclose). Speakers: 0/31 overlap WAXAL.",
+    "test_hit_examples": []
+  }
+}
