@@ -81,6 +81,69 @@ Or push automatically at the end of training: `python train_ctc.py --push-to-hub
 
 Pull it back on a fresh box with `from_pretrained("<user>/waxal-mms-1b-ctc")`. Checkpoint dirs are excluded from the upload by default (~6 GB each, useless off-box).
 
+## 6. Inference + submission (greedy) — a LIGHT box (no data download)
+
+Inference streams the **test** audio from HF on the fly — no `prepared/`, no `Train.csv`, no 200 GB download. A fresh box needs only: `infer.py` + `common.py` + `data/SampleSubmission.csv` + `HF_TOKEN`. The model comes from the Hub (or the local `artifacts/mms-1b-all` if same box).
+
+```bash
+# smoke first — this decode path is version-sensitive (~1 min):
+python infer.py --model mosesbomera/waxal-mms-1b-ctc --dtype bfloat16 \
+                --skip-submission --eval-num-samples 20
+#   ✅ per-language WER ~0.3 (NOT 1.0) -> decode wired right
+
+# full: local test eval + submission.csv
+python infer.py --model mosesbomera/waxal-mms-1b-ctc --dtype bfloat16
+```
+- **Use `--dtype bfloat16`** — float32 at batch 8 OOM-thrashes on the 46 s clips (the auto-split backstop fires, but bf16 avoids it; ~identical WER).
+- **Fill the corruption gaps before submitting.** ~7 Lingala test clips are the 1.008 s corruption (25-word ref over 1 s audio) → the model emits empty → counts as "missing". They're unwinnable; fill with a neutral placeholder (NOT the reference — using test labels = disqualification):
+  ```bash
+  python3 -c "import pandas as pd; d=pd.read_csv('submission.csv'); d['Target']=d['Target'].fillna('').apply(lambda x: x if str(x).strip() else 'a'); d.to_csv('submission.csv',index=False); print('empty:', int((d['Target'].astype(str).str.strip()=='').sum()))"
+  ```
+  ✅ `empty: 0`, then download `submission.csv` and submit.
+
+Local full-test ≈ board: greedy scored **local combined 0.2015 (WER 0.308 / CER 0.095) → board 0.790**. Lingala is dragged by public-test corruption that Phase-2 won't have — don't tune to public-LB Lingala; the speaker-disjoint val (0.205) is the north star.
+
+## 7. KenLM decoding (Stage 3) — TRIED, NO GAIN (keep greedy)
+
+> **Outcome (2026-07-17): KenLM does NOT help this model — submission stays greedy.**
+> Built the 4-gram LM and swept α: **0.5→2.0 gave byte-identical results** (the LM never
+> overturns the acoustic top-1); **α=10 finally moved the numbers but made WER worse.** The
+> full MMS-1B fine-tune is too confident (CER 0.067 on sna) for an n-gram LM to add anything —
+> it already learned word statistics during fine-tuning. N-gram LMs help *weak/uncertain*
+> acoustic models, not a strong in-domain FT. **Don't re-run this stage.** Steps kept below for
+> the record / in case a future weaker model wants an LM.
+>
+> **Py3.13 install gotcha:** the PyPI `kenlm` wheel fails to build (removed C-API symbols).
+> Fix: `pip install cython` → rebuild from the cloned repo (`cython --cplus -3 python/kenlm.pyx`
+> then `pip install . --no-build-isolation`) so Cython regenerates a 3.13-compatible `kenlm.cpp`.
+> Install the decoder without downgrading numpy: `pip install pyctcdecode --no-deps && pip install pygtrie`.
+
+An n-gram LM fixes word-boundary errors greedy CTC can't (Lingala's WER driver). Needs a one-time `lmplz` build; then it plugs into `infer.py --kenlm`.
+
+```bash
+# a) build kenlm + install the decoder (one-time on the box)
+apt-get update && apt-get install -y build-essential cmake libboost-all-dev \
+    libeigen3-dev zlib1g-dev libbz2-dev liblzma-dev
+git clone https://github.com/kpu/kenlm && cd kenlm && mkdir build && cd build \
+    && cmake .. && make -j4 && cd /workspace
+pip install kenlm pyctcdecode
+
+# b) build the 4-gram LM from lm/corpus.txt (34k transcripts, val speakers excluded)
+#    corpus is in the repo; if absent, regenerate with:  python clean_split.py
+python build_lm.py --lmplz-bin kenlm/build/bin/lmplz          # -> lm/waxal.arpa
+
+# c) measure LM vs greedy on the SAME local test (WER should drop, CER ~flat)
+python infer.py --model mosesbomera/waxal-mms-1b-ctc --dtype bfloat16 \
+                --kenlm lm/waxal.arpa --lm-alpha 0.5 --lm-beta 1.5 --skip-submission
+
+# d) if better, make the LM submission and compare the board delta vs 0.790
+python infer.py --model mosesbomera/waxal-mms-1b-ctc --dtype bfloat16 \
+                --kenlm lm/waxal.arpa --skip-evaluation
+```
+- **Expect a modest gain** (WER −0.02 to −0.05): half the metric is CER, which the LM doesn't touch.
+- **Tune α/β on clean val, not the corrupt test.** Defaults (0.5 / 1.5) are a sane start; proper tuning needs a val-eval mode (streams `manifests/val.csv` ids) — ask if you want it before sweeping.
+- First real test is step (c) — if it errors on the vocab/labels mapping, that's the untested `pyctcdecode` path; grab the traceback.
+
 ---
 
 ## Teardown checklist
@@ -106,3 +169,7 @@ python verify_data.py  # corruption verdict + speaker leakage
 | Disk full | `prepared/` ~49 GB + ~6 GB/checkpoint. Lower `--save-total-limit` (costs you step 4) |
 | `average_checkpoints.py`: "No checkpoint-*/" | `--save-total-limit` was too low, or training was interrupted before a save |
 | bitsandbytes missing | Falls back to fp32 AdamW — much more memory; install it or lower the batch |
+| **OOM during `infer.py`** | Use `--dtype bfloat16` (float32 batch-8 thrashes on 46 s clips); or lower `--batch-size`. The auto-split backstop prevents a crash either way. |
+| **`submission.csv` has missing rows** | The 1.008 s corruption in the public test → empty predictions. Fill with a placeholder (step 6); never with the reference text. |
+| `infer.py --kenlm` errors on labels/vocab | Untested `pyctcdecode` path — check `kenlm`+`pyctcdecode` installed and the label mapping; greedy (drop `--kenlm`) always works. |
+| local WER ≫ board on Lingala | Public-test corruption, not your model. Phase-2 is clean — trust the speaker-disjoint val, not public-LB Lingala. |

@@ -54,6 +54,13 @@ def parse_args() -> argparse.Namespace:
                    help="float32 reproduces the 0.205 eval exactly; bf16/fp16 are ~2x faster, ~same WER.")
     p.add_argument("--batch-size", type=int, default=8)
 
+    # KenLM beam-search decoding (Stage 3) — the WER lever. Greedy if --kenlm unset.
+    p.add_argument("--kenlm", default=None, help="Path to a KenLM .arpa/.bin (from build_lm.py). "
+                                                 "Switches greedy -> beam search with the LM.")
+    p.add_argument("--lm-alpha", type=float, default=0.5, help="LM weight (higher = trust the LM more).")
+    p.add_argument("--lm-beta", type=float, default=1.5, help="Word-insertion bonus.")
+    p.add_argument("--beam-width", type=int, default=100)
+
     # long-clip safety net (rarely fires: train max was 46 s, and CTC has no cap)
     p.add_argument("--max-chunk-sec", type=float, default=60.0,
                    help="Clips longer than this are split into windows to avoid OOM. 0 = never chunk.")
@@ -87,12 +94,31 @@ def load_model_and_processor(model_ref: str, dtype_str: str):
     return model, processor, device
 
 
+def build_lm_processor(processor, args):
+    """Wrap the tokenizer + a KenLM-backed pyctcdecode beam decoder into a
+    Wav2Vec2ProcessorWithLM. That class knows the tokenizer's blank ([PAD]) and
+    word-delimiter ('|') conventions, so we don't hand-map them. Returns None if
+    --kenlm is unset (greedy)."""
+    if not args.kenlm:
+        return None
+    from pyctcdecode import build_ctcdecoder
+    from transformers import Wav2Vec2ProcessorWithLM
+
+    vocab = processor.tokenizer.get_vocab()
+    labels = [tok for tok, _ in sorted(vocab.items(), key=lambda kv: kv[1])]  # class-id order
+    decoder = build_ctcdecoder(labels, kenlm_model_path=args.kenlm,
+                               alpha=args.lm_alpha, beta=args.lm_beta)
+    logger.info("KenLM decoder: %s | alpha=%.2f beta=%.2f beam=%d",
+                args.kenlm, args.lm_alpha, args.lm_beta, args.beam_width)
+    return Wav2Vec2ProcessorWithLM(feature_extractor=processor.feature_extractor,
+                                   tokenizer=processor.tokenizer, decoder=decoder)
+
+
 # ---------------------------------------------------------------------------
 # Direct CTC decode (the trustworthy path)
 # ---------------------------------------------------------------------------
 
-def _decode(model, processor, audio_arrays, device, sample_rate):
-    import numpy as np
+def _decode(model, processor, audio_arrays, device, sample_rate, lm_processor=None, beam_width=100):
     import torch
 
     inputs = processor(audio_arrays, sampling_rate=sample_rate, return_tensors="pt", padding=True)
@@ -101,8 +127,11 @@ def _decode(model, processor, audio_arrays, device, sample_rate):
     attn = attn.to(device) if attn is not None else None
     with torch.no_grad():
         logits = model(input_values, attention_mask=attn).logits
-    pred_ids = torch.argmax(logits, dim=-1)          # greedy
-    texts = processor.batch_decode(pred_ids)         # CTC collapse (group_tokens=True)
+    if lm_processor is None:
+        texts = processor.batch_decode(torch.argmax(logits, dim=-1))   # greedy CTC collapse
+    else:
+        # KenLM beam search over the (fp32) logits; ProcessorWithLM handles blank/delimiter.
+        texts = lm_processor.batch_decode(logits.float().cpu().numpy(), beam_width=beam_width).text
     return [normalize_for_ctc(t) for t in texts]
 
 
@@ -118,7 +147,8 @@ def _safe_decode(model, processor, audio_arrays, device, args):
     import torch
 
     try:
-        return _decode(model, processor, audio_arrays, device, args.sample_rate)
+        return _decode(model, processor, audio_arrays, device, args.sample_rate,
+                       lm_processor=getattr(args, "_lm_processor", None), beam_width=args.beam_width)
     except RuntimeError as e:            # torch.cuda.OutOfMemoryError subclasses RuntimeError
         if not _is_oom(e):
             raise
@@ -266,7 +296,9 @@ def main() -> None:
     login_to_hf(args.hf_token)
 
     model, processor, device = load_model_and_processor(args.model, args.dtype)
+    args._lm_processor = build_lm_processor(processor, args)   # None unless --kenlm given
     audio_to_array = make_audio_to_array(args.sample_rate)
+    logger.info("Decoding: %s", "KenLM beam search" if args._lm_processor else "greedy")
 
     if not args.skip_evaluation:
         run_evaluation(args, model, processor, device, audio_to_array, log_dir)

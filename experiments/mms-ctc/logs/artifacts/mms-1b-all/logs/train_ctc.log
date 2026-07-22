@@ -1,0 +1,39 @@
+2026-07-16 09:51:32,888 INFO train_ctc: Run config: {'audio_dir': '/workspace/prepared/waxal-raw', 'manifest_dir': '/workspace/manifests', 'vocab': '/workspace/vocab/vocab.json', 'artifact_dir': '/workspace/artifacts/mms-1b-all', 'sample_rate': 16000, 'model_id': 'facebook/mms-1b-all', 'train_mode': 'full', 'mask_time_prob': 0.065, 'mask_feature_prob': 0.1, 'layerdrop': 0.1, 'hidden_dropout': 0.05, 'attention_dropout': 0.05, 'learning_rate': 3e-05, 'head_learning_rate': 0.0001, 'weight_decay': 0.01, 'warmup_ratio': 0.1, 'num_train_epochs': 5.0, 'per_device_train_batch_size': 4, 'per_device_eval_batch_size': 4, 'gradient_accumulation_steps': 4, 'dataloader_num_workers': 4, 'max_duration_sec': 46.5, 'eval_steps': 500, 'save_steps': 500, 'logging_steps': 25, 'save_total_limit': 3, 'push_to_hub': False, 'hub_model_id': None, 'hub_private': True, 'max_eval_samples_per_language': 250, 'early_stopping_patience': 4, 'resume_from_checkpoint': None, 'seed': 42, 'hf_token': None}
+2026-07-16 09:51:32,940 INFO train_ctc: train manifest: 33045 clips, 521 speakers
+2026-07-16 09:55:22,859 INFO train_ctc: train: 33045 clips matched (190.9 h)
+2026-07-16 09:55:22,872 INFO train_ctc: val manifest: 3753 clips, 56 speakers
+2026-07-16 09:55:49,052 INFO train_ctc: val: 3753 clips matched (21.2 h)
+2026-07-16 09:55:49,112 INFO train_ctc: Eval subset 750 clips {'lin': 250, 'sna': 250, 'lug': 250} | final eval on all 3753 val clips
+2026-07-16 09:55:49,116 INFO train_ctc: Vocab 105 (cased+punctuated), blank/pad id=102
+2026-07-16 09:55:50,294 INFO train_ctc: train-mode=full | trainable 960.6M / 964.8M params (99.56%)
+2026-07-16 09:55:51,444 INFO train_ctc: optimizer: bitsandbytes AdamW8bit | body lr 3.0e-05, head lr 1.0e-04
+2026-07-16 09:55:51,449 WARNING accelerate.utils.other: [RANK 0] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2026-07-16 09:55:52,113 INFO train_ctc: Starting CTC fine-tune ...
+2026-07-16 10:19:45,266 INFO train_ctc: EVAL combined(macro) 0.2445 | WER 0.398 CER 0.091 | lin W0.378/C0.086 lug W0.399/C0.087 sna W0.415/C0.102
+2026-07-16 10:43:37,371 INFO train_ctc: EVAL combined(macro) 0.2394 | WER 0.389 CER 0.090 | lin W0.382/C0.081 lug W0.392/C0.093 sna W0.393/C0.097
+2026-07-16 11:07:10,198 INFO train_ctc: EVAL combined(macro) 0.2262 | WER 0.368 CER 0.084 | lin W0.375/C0.085 lug W0.375/C0.085 sna W0.354/C0.084
+2026-07-16 11:30:52,627 INFO train_ctc: EVAL combined(macro) 0.2222 | WER 0.362 CER 0.083 | lin W0.360/C0.083 lug W0.349/C0.071 sna W0.376/C0.095
+2026-07-16 11:55:07,031 INFO train_ctc: EVAL combined(macro) 0.2202 | WER 0.359 CER 0.081 | lin W0.359/C0.083 lug W0.363/C0.083 sna W0.355/C0.078
+2026-07-16 12:19:18,396 INFO train_ctc: EVAL combined(macro) 0.2184 | WER 0.355 CER 0.082 | lin W0.339/C0.079 lug W0.368/C0.084 sna W0.357/C0.084
+2026-07-16 12:43:31,364 INFO train_ctc: EVAL combined(macro) 0.2155 | WER 0.350 CER 0.080 | lin W0.349/C0.080 lug W0.343/C0.085 sna W0.360/C0.077
+2026-07-16 13:07:25,848 INFO train_ctc: EVAL combined(macro) 0.2072 | WER 0.336 CER 0.078 | lin W0.327/C0.076 lug W0.360/C0.092 sna W0.320/C0.067
+2026-07-16 13:31:16,044 INFO train_ctc: EVAL combined(macro) 0.2096 | WER 0.341 CER 0.079 | lin W0.336/C0.076 lug W0.336/C0.074 sna W0.351/C0.086
+2026-07-16 13:54:58,799 INFO train_ctc: EVAL combined(macro) 0.2280 | WER 0.364 CER 0.092 | lin W0.352/C0.093 lug W0.383/C0.095 sna W0.358/C0.087
+2026-07-16 14:19:02,505 INFO train_ctc: EVAL combined(macro) 0.2052 | WER 0.334 CER 0.077 | lin W0.320/C0.075 lug W0.324/C0.069 sna W0.357/C0.087
+2026-07-16 14:43:02,678 INFO train_ctc: EVAL combined(macro) 0.2068 | WER 0.336 CER 0.077 | lin W0.330/C0.071 lug W0.337/C0.080 sna W0.342/C0.080
+2026-07-16 15:06:51,330 INFO train_ctc: EVAL combined(macro) 0.2001 | WER 0.325 CER 0.075 | lin W0.316/C0.074 lug W0.345/C0.085 sna W0.315/C0.067
+2026-07-16 15:30:48,624 INFO train_ctc: EVAL combined(macro) 0.1997 | WER 0.325 CER 0.075 | lin W0.329/C0.078 lug W0.316/C0.066 sna W0.329/C0.080
+2026-07-16 15:54:34,141 INFO train_ctc: EVAL combined(macro) 0.1986 | WER 0.323 CER 0.075 | lin W0.310/C0.069 lug W0.314/C0.067 sna W0.344/C0.088
+2026-07-16 16:18:18,078 INFO train_ctc: EVAL combined(macro) 0.1967 | WER 0.320 CER 0.074 | lin W0.319/C0.077 lug W0.324/C0.069 sna W0.317/C0.074
+2026-07-16 16:42:30,190 INFO train_ctc: EVAL combined(macro) 0.2007 | WER 0.326 CER 0.076 | lin W0.330/C0.078 lug W0.332/C0.077 sna W0.315/C0.072
+2026-07-16 17:06:17,908 INFO train_ctc: EVAL combined(macro) 0.1926 | WER 0.313 CER 0.072 | lin W0.314/C0.078 lug W0.309/C0.073 sna W0.317/C0.065
+2026-07-16 17:30:15,063 INFO train_ctc: EVAL combined(macro) 0.1969 | WER 0.319 CER 0.075 | lin W0.310/C0.075 lug W0.328/C0.074 sna W0.319/C0.076
+2026-07-16 17:54:10,148 INFO train_ctc: EVAL combined(macro) 0.1931 | WER 0.314 CER 0.072 | lin W0.331/C0.078 lug W0.306/C0.078 sna W0.305/C0.062
+2026-07-16 18:10:01,044 INFO train_ctc: EVAL combined(macro) 0.1936 | WER 0.315 CER 0.072 | lin W0.314/C0.075 lug W0.311/C0.069 sna W0.319/C0.073
+2026-07-16 18:10:05,215 INFO train_ctc: Done in 8h 14m 13s.
+2026-07-16 18:10:07,225 INFO train_ctc: Final eval on all 3753 val clips ...
+2026-07-16 18:12:57,681 INFO train_ctc: EVAL combined(macro) 0.2126 | WER 0.343 CER 0.082 | lin W0.351/C0.089 lug W0.326/C0.071 sna W0.354/C0.086
+2026-07-16 18:13:01,175 INFO train_ctc: FINAL (full speaker-disjoint val, n=3753): combined 0.2177 | WER 0.351 CER 0.085 | lin W0.347/C0.084 lug W0.353/C0.086 sna W0.353/C0.084
+2026-07-16 18:13:01,175 INFO train_ctc: Model + logs -> /workspace/artifacts/mms-1b-all
+2026-07-16 18:13:01,175 INFO train_ctc: Checkpoints kept for averaging: ['checkpoint-10000', 'checkpoint-10330', 'checkpoint-9000']
+2026-07-16 18:13:01,175 INFO train_ctc: Next: python average_checkpoints.py   (then Stage 3 — KenLM decoding)

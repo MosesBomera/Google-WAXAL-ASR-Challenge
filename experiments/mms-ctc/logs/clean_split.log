@@ -1,0 +1,484 @@
+2026-07-15 22:17:10,866 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:17:11,178 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:17:11,969 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:17:11,984 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:17:11,984 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:17:11,984 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:17:11,996 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:17:11,996 INFO clean_split:   lin: train 13658 clips/34 spk (72.3 h) | val 1539 clips/51 spk (8.6 h, 10.1%)
+2026-07-15 22:17:11,996 INFO clean_split:      largest val speaker = 7.7% of val | val gender {'female': 510, 'male': 1029}
+2026-07-15 22:17:11,996 INFO clean_split:   lug: train 5501 clips/207 spk (37.4 h) | val 618 clips/132 spk (4.5 h, 10.1%)
+2026-07-15 22:17:11,996 INFO clean_split:      largest val speaker = 1.6% of val | val gender {'male': 268, 'female': 348, 'unknown': 2}
+2026-07-15 22:17:11,996 INFO clean_split:   sna: train 13874 clips/45 spk (80.4 h) | val 1608 clips/108 spk (9.0 h, 10.4%)
+2026-07-15 22:17:11,996 INFO clean_split:      largest val speaker = 4.7% of val | val gender {'female': 928, 'male': 680}
+2026-07-15 22:17:11,999 INFO clean_split:   ✓ verified 0 speaker overlap (train 286 spk, val 291 spk)
+2026-07-15 22:17:12,217 INFO clean_split: ===== VOCAB ===== size 102 (99 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:17:12,217 INFO clean_split:   punctuation: !"&'(),-./:;<>?
+2026-07-15 22:17:12,217 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['ü', '<', 'û', 'ò', '>', '/', 'Q', 'X', 'É', 'ù', 'ì', 'á', 'ó', '&', 'ç', 'ï', '8', 'ê', '7', '5', 'ú', 'â']
+2026-07-15 22:17:12,914 INFO clean_split: ===== LM CORPUS ===== 34379 lines, 905608 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:17:13,039 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33033 clips)
+2026-07-15 22:17:13,047 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3765 clips)
+2026-07-15 22:17:13,052 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:17:13,052 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:19:11,239 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:19:11,554 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:19:12,342 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:19:12,357 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:19:12,357 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:19:12,357 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:19:12,368 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:19:12,368 INFO clean_split:   lin: train 13670 clips/42 spk (72.3 h) | val 1527 clips/43 spk (8.6 h, 10.1%)
+2026-07-15 22:19:12,369 INFO clean_split:      largest val speaker = 7.8% of val | val gender {'female': 505, 'male': 1022}
+2026-07-15 22:19:12,369 INFO clean_split:   lug: train 5484 clips/313 spk (37.1 h) | val 635 clips/26 spk (4.8 h, 10.4%)
+2026-07-15 22:19:12,369 INFO clean_split:      largest val speaker = 4.1% of val | val gender {'male': 419, 'female': 216}
+2026-07-15 22:19:12,369 INFO clean_split:   sna: train 13933 clips/123 spk (80.6 h) | val 1549 clips/30 spk (8.7 h, 10.0%)
+2026-07-15 22:19:12,369 INFO clean_split:      largest val speaker = 5.5% of val | val gender {'female': 819, 'male': 730}
+2026-07-15 22:19:12,372 INFO clean_split:   ✓ verified 0 speaker overlap (train 478 spk, val 99 spk)
+2026-07-15 22:19:12,577 INFO clean_split: ===== VOCAB ===== size 102 (99 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:19:12,578 INFO clean_split:   punctuation: !"&'(),-./:;<>?
+2026-07-15 22:19:12,578 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['ü', 'û', 'ò', '<', '>', '/', 'Q', 'X', 'É', 'ù', 'ì', 'á', 'ó', '&', 'ç', 'ï', '8', 'ê', 'ú', '7', '5', 'â']
+2026-07-15 22:19:13,263 INFO clean_split: ===== LM CORPUS ===== 34485 lines, 904246 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:19:13,388 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33087 clips)
+2026-07-15 22:19:13,396 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3711 clips)
+2026-07-15 22:19:13,401 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:19:13,401 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:19:59,991 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:00,303 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:01,082 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:01,096 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:01,096 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:01,096 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:01,107 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:01,107 INFO clean_split:   lin: train 13575 clips/74 spk (71.7 h) | val 1622 clips/11 spk (9.2 h, 10.7%)
+2026-07-15 22:20:01,108 INFO clean_split:      largest val speaker = 11.4% of val | val gender {'female': 160, 'male': 1462}
+2026-07-15 22:20:01,108 INFO clean_split:   lug: train 5456 clips/328 spk (38.0 h) | val 663 clips/11 spk (3.9 h, 10.8%)
+2026-07-15 22:20:01,108 INFO clean_split:      largest val speaker = 10.4% of val | val gender {'female': 252, 'male': 356, 'unknown': 55}
+2026-07-15 22:20:01,108 INFO clean_split:   sna: train 13890 clips/143 spk (80.5 h) | val 1592 clips/10 spk (8.9 h, 10.3%)
+2026-07-15 22:20:01,108 INFO clean_split:      largest val speaker = 11.1% of val | val gender {'male': 804, 'female': 788}
+2026-07-15 22:20:01,111 INFO clean_split:   ✓ verified 0 speaker overlap (train 545 spk, val 32 spk)
+2026-07-15 22:20:01,325 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:01,325 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:20:01,326 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['û', 'ü', '=', '<', 'Q', 'ò', '>', '/', 'ù', 'á', 'ì', 'X', 'É', 'ó', 'ê', 'ç', '8', '&', 'ï', 'â', 'ú', '7']
+2026-07-15 22:20:02,009 INFO clean_split: ===== LM CORPUS ===== 34321 lines, 895007 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:02,134 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (32921 clips)
+2026-07-15 22:20:02,142 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3877 clips)
+2026-07-15 22:20:02,147 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:02,147 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:02,508 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:02,801 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:03,554 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:03,569 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:03,569 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:03,569 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:03,580 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:03,581 INFO clean_split:   lin: train 13670 clips/70 spk (72.2 h) | val 1527 clips/15 spk (8.7 h, 10.1%)
+2026-07-15 22:20:03,581 INFO clean_split:      largest val speaker = 9.4% of val | val gender {'female': 299, 'male': 1228}
+2026-07-15 22:20:03,581 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:20:03,581 INFO clean_split:      largest val speaker = 6.8% of val | val gender {'female': 321, 'male': 322}
+2026-07-15 22:20:03,581 INFO clean_split:   sna: train 13835 clips/137 spk (79.7 h) | val 1647 clips/16 spk (9.7 h, 10.6%)
+2026-07-15 22:20:03,581 INFO clean_split:      largest val speaker = 8.6% of val | val gender {'female': 1290, 'male': 357}
+2026-07-15 22:20:03,584 INFO clean_split:   ✓ verified 0 speaker overlap (train 530 spk, val 47 spk)
+2026-07-15 22:20:03,790 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:03,790 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:20:03,790 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', 'ò', '>', '/', 'Q', 'ù', 'á', 'X', 'ì', 'É', 'ó', 'ï', '&', 'ç', '8', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:20:04,440 INFO clean_split: ===== LM CORPUS ===== 34381 lines, 895093 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:04,557 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (32981 clips)
+2026-07-15 22:20:04,566 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3817 clips)
+2026-07-15 22:20:04,571 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:04,571 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:04,942 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:05,241 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:06,022 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:06,038 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:06,038 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:06,038 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:06,050 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:06,050 INFO clean_split:   lin: train 13670 clips/42 spk (72.3 h) | val 1527 clips/43 spk (8.6 h, 10.1%)
+2026-07-15 22:20:06,050 INFO clean_split:      largest val speaker = 7.8% of val | val gender {'female': 505, 'male': 1022}
+2026-07-15 22:20:06,050 INFO clean_split:   lug: train 5484 clips/313 spk (37.1 h) | val 635 clips/26 spk (4.8 h, 10.4%)
+2026-07-15 22:20:06,050 INFO clean_split:      largest val speaker = 4.1% of val | val gender {'male': 419, 'female': 216}
+2026-07-15 22:20:06,050 INFO clean_split:   sna: train 13933 clips/123 spk (80.6 h) | val 1549 clips/30 spk (8.7 h, 10.0%)
+2026-07-15 22:20:06,050 INFO clean_split:      largest val speaker = 5.5% of val | val gender {'female': 819, 'male': 730}
+2026-07-15 22:20:06,054 INFO clean_split:   ✓ verified 0 speaker overlap (train 478 spk, val 99 spk)
+2026-07-15 22:20:06,263 INFO clean_split: ===== VOCAB ===== size 102 (99 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:06,263 INFO clean_split:   punctuation: !"&'(),-./:;<>?
+2026-07-15 22:20:06,263 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['ü', 'û', 'ò', '<', '>', '/', 'Q', 'X', 'É', 'ù', 'ì', 'á', 'ó', '&', 'ç', 'ï', '8', 'ê', 'ú', '7', '5', 'â']
+2026-07-15 22:20:06,964 INFO clean_split: ===== LM CORPUS ===== 34485 lines, 904246 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:07,079 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33087 clips)
+2026-07-15 22:20:07,087 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3711 clips)
+2026-07-15 22:20:07,091 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:07,091 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:07,497 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:07,793 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:08,587 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:08,602 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:08,602 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:08,602 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:08,614 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:08,614 INFO clean_split:   lin: train 13658 clips/34 spk (72.3 h) | val 1539 clips/51 spk (8.6 h, 10.1%)
+2026-07-15 22:20:08,615 INFO clean_split:      largest val speaker = 7.7% of val | val gender {'female': 510, 'male': 1029}
+2026-07-15 22:20:08,615 INFO clean_split:   lug: train 5493 clips/298 spk (37.6 h) | val 626 clips/41 spk (4.3 h, 10.2%)
+2026-07-15 22:20:08,615 INFO clean_split:      largest val speaker = 2.9% of val | val gender {'female': 328, 'male': 298}
+2026-07-15 22:20:08,615 INFO clean_split:   sna: train 13897 clips/68 spk (80.5 h) | val 1585 clips/85 spk (8.9 h, 10.2%)
+2026-07-15 22:20:08,615 INFO clean_split:      largest val speaker = 4.8% of val | val gender {'female': 911, 'male': 674}
+2026-07-15 22:20:08,618 INFO clean_split:   ✓ verified 0 speaker overlap (train 400 spk, val 177 spk)
+2026-07-15 22:20:08,836 INFO clean_split: ===== VOCAB ===== size 102 (99 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:08,836 INFO clean_split:   punctuation: !"&'(),-./:;<>?
+2026-07-15 22:20:08,836 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['ü', 'û', 'ò', '<', '/', 'Q', '>', 'X', 'É', 'ù', 'ì', 'á', 'ó', '&', 'ç', 'ï', '8', 'ê', '7', '5', 'ú', 'â']
+2026-07-15 22:20:09,531 INFO clean_split: ===== LM CORPUS ===== 34433 lines, 908282 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:09,648 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33048 clips)
+2026-07-15 22:20:09,656 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3750 clips)
+2026-07-15 22:20:09,661 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:09,661 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:29,529 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:29,827 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:30,607 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:30,622 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:30,622 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:30,622 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:30,633 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:30,634 INFO clean_split:   lin: train 13575 clips/74 spk (71.7 h) | val 1622 clips/11 spk (9.2 h, 10.7%)
+2026-07-15 22:20:30,634 INFO clean_split:      largest val speaker = 11.4% of val | val gender {'female': 160, 'male': 1462}
+2026-07-15 22:20:30,634 INFO clean_split:   lug: train 5456 clips/328 spk (38.0 h) | val 663 clips/11 spk (3.9 h, 10.8%)
+2026-07-15 22:20:30,634 INFO clean_split:      largest val speaker = 10.4% of val | val gender {'female': 252, 'male': 356, 'unknown': 55}
+2026-07-15 22:20:30,634 INFO clean_split:   sna: train 13890 clips/143 spk (80.5 h) | val 1592 clips/10 spk (8.9 h, 10.3%)
+2026-07-15 22:20:30,634 INFO clean_split:      largest val speaker = 11.1% of val | val gender {'male': 804, 'female': 788}
+2026-07-15 22:20:30,637 INFO clean_split:   ✓ verified 0 speaker overlap (train 545 spk, val 32 spk)
+2026-07-15 22:20:30,839 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:30,839 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:20:30,839 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['û', 'ü', '=', '<', 'Q', 'ò', '>', '/', 'ù', 'á', 'ì', 'X', 'É', 'ó', 'ê', 'ç', '8', '&', 'ï', 'â', 'ú', '7']
+2026-07-15 22:20:31,516 INFO clean_split: ===== LM CORPUS ===== 34321 lines, 895007 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:31,635 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (32921 clips)
+2026-07-15 22:20:31,643 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3877 clips)
+2026-07-15 22:20:31,648 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:31,648 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:32,025 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:32,353 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:33,119 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:33,133 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:33,133 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:33,133 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:33,144 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:33,145 INFO clean_split:   lin: train 13670 clips/70 spk (72.2 h) | val 1527 clips/15 spk (8.7 h, 10.1%)
+2026-07-15 22:20:33,145 INFO clean_split:      largest val speaker = 9.4% of val | val gender {'female': 299, 'male': 1228}
+2026-07-15 22:20:33,145 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:20:33,145 INFO clean_split:      largest val speaker = 6.8% of val | val gender {'female': 321, 'male': 322}
+2026-07-15 22:20:33,145 INFO clean_split:   sna: train 13835 clips/137 spk (79.7 h) | val 1647 clips/16 spk (9.7 h, 10.6%)
+2026-07-15 22:20:33,145 INFO clean_split:      largest val speaker = 8.6% of val | val gender {'female': 1290, 'male': 357}
+2026-07-15 22:20:33,148 INFO clean_split:   ✓ verified 0 speaker overlap (train 530 spk, val 47 spk)
+2026-07-15 22:20:33,353 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:33,353 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:20:33,353 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', 'ò', '>', '/', 'Q', 'ù', 'á', 'X', 'ì', 'É', 'ó', 'ï', '&', 'ç', '8', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:20:34,019 INFO clean_split: ===== LM CORPUS ===== 34381 lines, 895093 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:34,137 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (32981 clips)
+2026-07-15 22:20:34,145 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3817 clips)
+2026-07-15 22:20:34,150 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:34,150 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:34,520 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:34,815 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:35,591 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:35,606 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:35,606 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:35,606 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:35,617 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:35,617 INFO clean_split:   lin: train 13670 clips/42 spk (72.3 h) | val 1527 clips/43 spk (8.6 h, 10.1%)
+2026-07-15 22:20:35,617 INFO clean_split:      largest val speaker = 7.8% of val | val gender {'female': 505, 'male': 1022}
+2026-07-15 22:20:35,617 INFO clean_split:   lug: train 5484 clips/313 spk (37.1 h) | val 635 clips/26 spk (4.8 h, 10.4%)
+2026-07-15 22:20:35,617 INFO clean_split:      largest val speaker = 4.1% of val | val gender {'male': 419, 'female': 216}
+2026-07-15 22:20:35,617 INFO clean_split:   sna: train 13933 clips/123 spk (80.6 h) | val 1549 clips/30 spk (8.7 h, 10.0%)
+2026-07-15 22:20:35,617 INFO clean_split:      largest val speaker = 5.5% of val | val gender {'female': 819, 'male': 730}
+2026-07-15 22:20:35,620 INFO clean_split:   ✓ verified 0 speaker overlap (train 478 spk, val 99 spk)
+2026-07-15 22:20:35,823 INFO clean_split: ===== VOCAB ===== size 102 (99 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:35,824 INFO clean_split:   punctuation: !"&'(),-./:;<>?
+2026-07-15 22:20:35,824 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['ü', 'û', 'ò', '<', '>', '/', 'Q', 'X', 'É', 'ù', 'ì', 'á', 'ó', '&', 'ç', 'ï', '8', 'ê', 'ú', '7', '5', 'â']
+2026-07-15 22:20:36,498 INFO clean_split: ===== LM CORPUS ===== 34485 lines, 904246 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:36,614 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33087 clips)
+2026-07-15 22:20:36,623 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3711 clips)
+2026-07-15 22:20:36,627 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:36,627 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:20:36,985 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:20:37,275 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:20:38,049 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:20:38,064 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:20:38,064 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:20:38,064 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:20:38,077 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:20:38,077 INFO clean_split:   lin: train 13658 clips/34 spk (72.3 h) | val 1539 clips/51 spk (8.6 h, 10.1%)
+2026-07-15 22:20:38,077 INFO clean_split:      largest val speaker = 7.7% of val | val gender {'female': 510, 'male': 1029}
+2026-07-15 22:20:38,077 INFO clean_split:   lug: train 5493 clips/298 spk (37.6 h) | val 626 clips/41 spk (4.3 h, 10.2%)
+2026-07-15 22:20:38,077 INFO clean_split:      largest val speaker = 2.9% of val | val gender {'female': 328, 'male': 298}
+2026-07-15 22:20:38,077 INFO clean_split:   sna: train 13897 clips/68 spk (80.5 h) | val 1585 clips/85 spk (8.9 h, 10.2%)
+2026-07-15 22:20:38,077 INFO clean_split:      largest val speaker = 4.8% of val | val gender {'female': 911, 'male': 674}
+2026-07-15 22:20:38,080 INFO clean_split:   ✓ verified 0 speaker overlap (train 400 spk, val 177 spk)
+2026-07-15 22:20:38,299 INFO clean_split: ===== VOCAB ===== size 102 (99 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:20:38,299 INFO clean_split:   punctuation: !"&'(),-./:;<>?
+2026-07-15 22:20:38,299 INFO clean_split:   22 rare chars remain (<20x) after normalization: ['ü', 'û', 'ò', '<', '/', 'Q', '>', 'X', 'É', 'ù', 'ì', 'á', 'ó', '&', 'ç', 'ï', '8', 'ê', '7', '5', 'ú', 'â']
+2026-07-15 22:20:38,970 INFO clean_split: ===== LM CORPUS ===== 34433 lines, 908282 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:20:39,084 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33048 clips)
+2026-07-15 22:20:39,092 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3750 clips)
+2026-07-15 22:20:39,097 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:20:39,097 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:21:41,114 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:21:41,426 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:21:42,201 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:21:42,216 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:21:42,217 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:21:42,217 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:21:42,228 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:21:42,228 INFO clean_split:   lin: train 13670 clips/70 spk (72.2 h) | val 1527 clips/15 spk (8.7 h, 10.1%)
+2026-07-15 22:21:42,228 INFO clean_split:      largest val speaker = 9.4% of val | val gender {'female': 299, 'male': 1228}
+2026-07-15 22:21:42,228 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:21:42,228 INFO clean_split:      largest val speaker = 6.8% of val | val gender {'female': 321, 'male': 322}
+2026-07-15 22:21:42,228 INFO clean_split:   sna: train 13835 clips/137 spk (79.7 h) | val 1647 clips/16 spk (9.7 h, 10.6%)
+2026-07-15 22:21:42,228 INFO clean_split:      largest val speaker = 8.6% of val | val gender {'female': 1290, 'male': 357}
+2026-07-15 22:21:42,231 INFO clean_split:   ✓ verified 0 speaker overlap (train 530 spk, val 47 spk)
+2026-07-15 22:21:42,447 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:21:42,447 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:21:42,447 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', 'ò', '>', '/', 'Q', 'ù', 'á', 'X', 'ì', 'É', 'ó', 'ï', '&', 'ç', '8', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:21:43,124 INFO clean_split: ===== LM CORPUS ===== 34381 lines, 895093 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:21:43,247 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (32981 clips)
+2026-07-15 22:21:43,255 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3817 clips)
+2026-07-15 22:21:43,260 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:21:43,260 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:35:29,671 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:35:29,986 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:35:30,759 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:35:30,774 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:35:30,774 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:35:30,774 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:35:30,800 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:35:30,800 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:35:30,800 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:35:30,800 INFO clean_split:   lug: train 5465 clips/323 spk (37.8 h) | val 654 clips/16 spk (4.1 h, 10.7%)
+2026-07-15 22:35:30,800 INFO clean_split:      largest val speaker = 8.4% of val | gender val {'female': 42.4, 'male': 49.2, 'unknown': 8.4} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:35:30,800 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:35:30,800 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:35:30,804 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:35:31,018 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:35:31,018 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:35:31,018 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:35:31,695 INFO clean_split: ===== LM CORPUS ===== 34433 lines, 908040 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:35:31,821 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33034 clips)
+2026-07-15 22:35:31,829 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3764 clips)
+2026-07-15 22:35:31,835 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:35:31,835 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:36:54,033 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:36:54,352 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:36:55,141 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:36:55,156 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:36:55,156 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:36:55,156 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:36:55,185 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:36:55,185 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:36:55,185 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:36:55,185 INFO clean_split:   lug: train 5476 clips/323 spk (37.9 h) | val 643 clips/16 spk (4.0 h, 10.5%)
+2026-07-15 22:36:55,185 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:36:55,185 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:36:55,185 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:36:55,189 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:36:55,411 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:36:55,411 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:36:55,411 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:36:56,099 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 909027 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:36:56,221 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:36:56,230 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:36:56,235 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:36:56,235 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:37:59,659 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:37:59,976 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:38:00,800 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:38:00,815 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:38:00,815 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:38:00,815 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:38:00,843 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:38:00,843 INFO clean_split:   lin: train 13658 clips/59 spk (72.2 h) | val 1539 clips/26 spk (8.7 h, 10.1%)
+2026-07-15 22:38:00,843 INFO clean_split:      largest val speaker = 9.0% of val | gender val {'female': 33.1, 'male': 66.9} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:38:00,843 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:38:00,843 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:38:00,843 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:38:00,843 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:38:00,847 INFO clean_split:   ✓ verified 0 speaker overlap (train 520 spk, val 57 spk)
+2026-07-15 22:38:01,060 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:38:01,060 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:38:01,060 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:38:01,755 INFO clean_split: ===== LM CORPUS ===== 34435 lines, 902025 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:38:01,877 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33036 clips)
+2026-07-15 22:38:01,885 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3762 clips)
+2026-07-15 22:38:01,890 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:38:01,890 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:38:35,532 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:38:35,848 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:38:36,619 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:38:36,634 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:38:36,635 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:38:36,635 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:38:36,662 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:38:36,662 INFO clean_split:   lin: train 13658 clips/59 spk (72.2 h) | val 1539 clips/26 spk (8.7 h, 10.1%)
+2026-07-15 22:38:36,662 INFO clean_split:      largest val speaker = 9.0% of val | gender val {'female': 33.1, 'male': 66.9} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:38:36,662 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:38:36,662 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:38:36,662 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:38:36,662 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:38:36,666 INFO clean_split:   ✓ verified 0 speaker overlap (train 520 spk, val 57 spk)
+2026-07-15 22:38:36,875 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:38:36,875 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:38:36,875 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:38:37,538 INFO clean_split: ===== LM CORPUS ===== 34435 lines, 902025 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:38:37,661 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33036 clips)
+2026-07-15 22:38:37,670 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3762 clips)
+2026-07-15 22:38:37,675 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:38:37,675 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:38:38,052 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:38:38,341 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:38:39,125 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:38:39,139 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:38:39,139 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:38:39,139 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:38:39,165 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:38:39,165 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:38:39,166 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:38:39,166 INFO clean_split:   lug: train 5476 clips/323 spk (37.9 h) | val 643 clips/16 spk (4.0 h, 10.5%)
+2026-07-15 22:38:39,166 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:38:39,166 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:38:39,166 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:38:39,170 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:38:39,377 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:38:39,377 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:38:39,377 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:38:40,053 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 909027 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:38:40,170 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:38:40,178 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:38:40,183 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:38:40,183 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:38:40,554 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:38:40,849 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:38:41,630 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:38:41,645 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:38:41,645 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:38:41,645 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:38:41,672 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:38:41,672 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:38:41,672 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:38:41,672 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:38:41,672 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:38:41,672 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:38:41,672 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:38:41,676 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:38:41,885 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:38:41,886 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:38:41,886 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:38:42,565 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 907853 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:38:42,683 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:38:42,692 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:38:42,696 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:38:42,696 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:38:43,062 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:38:43,357 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:38:44,124 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:38:44,140 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:38:44,140 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:38:44,140 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:38:44,166 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:38:44,166 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:38:44,167 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:38:44,167 INFO clean_split:   lug: train 5476 clips/323 spk (37.9 h) | val 643 clips/16 spk (4.0 h, 10.5%)
+2026-07-15 22:38:44,167 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:38:44,167 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:38:44,167 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:38:44,171 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:38:44,387 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:38:44,387 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:38:44,387 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:38:45,054 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 909027 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:38:45,171 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:38:45,178 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:38:45,183 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:38:45,183 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:39:08,911 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:39:09,206 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:39:10,005 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:39:10,020 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:39:10,020 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:39:10,020 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:39:10,046 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:39:10,046 INFO clean_split:   lin: train 13658 clips/59 spk (72.2 h) | val 1539 clips/26 spk (8.7 h, 10.1%)
+2026-07-15 22:39:10,046 INFO clean_split:      largest val speaker = 9.0% of val | gender val {'female': 33.1, 'male': 66.9} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:39:10,046 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:39:10,046 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:39:10,046 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:39:10,046 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:39:10,050 INFO clean_split:   ✓ verified 0 speaker overlap (train 520 spk, val 57 spk)
+2026-07-15 22:39:10,265 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:39:10,265 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:39:10,265 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:39:10,959 INFO clean_split: ===== LM CORPUS ===== 34435 lines, 902025 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:39:11,080 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33036 clips)
+2026-07-15 22:39:11,088 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3762 clips)
+2026-07-15 22:39:11,092 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:39:11,093 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:39:11,493 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:39:11,786 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:39:12,569 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:39:12,584 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:39:12,584 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:39:12,584 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:39:12,612 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:39:12,612 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:39:12,612 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:39:12,612 INFO clean_split:   lug: train 5476 clips/323 spk (37.9 h) | val 643 clips/16 spk (4.0 h, 10.5%)
+2026-07-15 22:39:12,612 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:39:12,613 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:39:12,613 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:39:12,617 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:39:12,828 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:39:12,828 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:39:12,828 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:39:13,507 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 909027 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:39:13,624 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:39:13,632 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:39:13,637 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:39:13,637 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:39:14,037 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:39:14,329 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:39:15,117 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:39:15,132 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:39:15,132 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:39:15,132 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:39:15,158 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:39:15,158 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:39:15,158 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:39:15,158 INFO clean_split:   lug: train 5476 clips/323 spk (37.7 h) | val 643 clips/16 spk (4.2 h, 10.5%)
+2026-07-15 22:39:15,158 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:39:15,158 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:39:15,158 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:39:15,162 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:39:15,368 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:39:15,368 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:39:15,368 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:39:16,048 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 907853 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:39:16,162 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:39:16,170 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:39:16,175 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:39:16,175 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
+2026-07-15 22:40:19,528 INFO clean_split: Loading /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/data/google-waxal-asr-challenge20260630-10570-elxebu/waxal_clip_metadata.csv ...
+2026-07-15 22:40:19,849 INFO clean_split: Loaded 38199 clips (offline — no audio, no GPU).
+2026-07-15 22:40:20,651 INFO clean_split: ===== CLEANING (thresholds from our EDA) =====
+2026-07-15 22:40:20,667 INFO clean_split:   lin: 16244 -> 15197 clips (-6.45%) | 81.2 -> 80.9 h (-0.37% of audio) | {'corrupt_short': 1044, 'corrupt_fast': 2, 'empty': 1}
+2026-07-15 22:40:20,667 INFO clean_split:   lug: 6119 -> 6119 clips (-0.00%) | 41.9 -> 41.9 h (-0.00% of audio) | {}
+2026-07-15 22:40:20,667 INFO clean_split:   sna: 15836 -> 15482 clips (-2.24%) | 89.4 -> 89.3 h (-0.11% of audio) | {'corrupt_short': 354}
+2026-07-15 22:40:20,695 INFO clean_split: ===== SPEAKER-DISJOINT SPLIT (ours — the provided one is ~100%% leaked) =====
+2026-07-15 22:40:20,695 INFO clean_split:   lin: train 13667 clips/60 spk (72.6 h) | val 1530 clips/25 spk (8.3 h, 10.1%)
+2026-07-15 22:40:20,695 INFO clean_split:      largest val speaker = 14.8% of val | gender val {'female': 58.6, 'male': 41.4} vs language {'female': 54.2, 'male': 45.8}
+2026-07-15 22:40:20,695 INFO clean_split:   lug: train 5476 clips/323 spk (37.9 h) | val 643 clips/16 spk (4.0 h, 10.5%)
+2026-07-15 22:40:20,695 INFO clean_split:      largest val speaker = 6.8% of val | gender val {'female': 49.9, 'male': 50.1} vs language {'female': 46.0, 'male': 53.0, 'unknown': 0.9}
+2026-07-15 22:40:20,695 INFO clean_split:   sna: train 13902 clips/138 spk (80.4 h) | val 1580 clips/15 spk (8.9 h, 10.2%)
+2026-07-15 22:40:20,695 INFO clean_split:      largest val speaker = 9.3% of val | gender val {'female': 55.1, 'male': 44.9} vs language {'female': 56.9, 'male': 43.1}
+2026-07-15 22:40:20,700 INFO clean_split:   ✓ verified 0 speaker overlap (train 521 spk, val 56 spk)
+2026-07-15 22:40:20,913 INFO clean_split: ===== VOCAB ===== size 103 (100 data chars + | [UNK] [PAD]) | uppercase=True
+2026-07-15 22:40:20,913 INFO clean_split:   punctuation: !"&'(),-./:;<=>?
+2026-07-15 22:40:20,913 INFO clean_split:   23 rare chars remain (<20x) after normalization: ['<', 'û', 'ü', '=', '>', 'Q', 'ò', '/', 'ù', 'É', 'á', 'X', 'ì', 'ó', 'ï', 'ç', '8', '&', 'ê', 'ú', '7', 'â', '5']
+2026-07-15 22:40:21,621 INFO clean_split: ===== LM CORPUS ===== 34444 lines, 909027 words -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/lm/corpus.txt (val speakers excluded)
+2026-07-15 22:40:21,751 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/train.csv (33045 clips)
+2026-07-15 22:40:21,759 INFO clean_split: Wrote /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/manifests/val.csv (3753 clips)
+2026-07-15 22:40:21,764 INFO clean_split: Report -> /Users/mosesbomera/Documents/Vocation/4for4/2026/GWAC/experiments/mms-ctc/clean_split_report.json
+2026-07-15 22:40:21,764 INFO clean_split: Stage 1c done. Next: Stage 2 — MMS-1B CTC fine-tune on manifests/train.csv.
