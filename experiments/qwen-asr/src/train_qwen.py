@@ -263,7 +263,9 @@ def load_split(args, split: str, manifest_name: str):
     ds = ds.filter(lambda ex: ex["duration"] <= args.max_duration_sec, num_proc=1)
     # input_length (audio samples) for length-grouped batching — group similar-length clips per batch
     # → less padding → faster/less-memory (audio dominates the padded length). Same proxy as train_ctc.
-    ds = ds.map(lambda ex: {"input_length": int(ex["duration"] * args.sr)}, num_proc=1)
+    # getattr fallback: infer_qwen reuses load_split but has no --sr (16 kHz prepared audio either way).
+    _sr = getattr(args, "sr", 16000)
+    ds = ds.map(lambda ex: {"input_length": int(ex["duration"] * _sr)}, num_proc=1)
     print(f"[data] {split}: {len(ds)} clips ({sum(ds['duration'])/3600:.1f} h)")
     return ds
 
