@@ -1,0 +1,31 @@
+# qwen-asr experiment — box deps (conda python 3.13). Pins follow the reference winners:
+#   torch/torchaudio/qwen_asr/datasets/vllm  = 3rd-place requirements.txt
+#   transformers floor                       = 1st-place csrc_qwen (Qwen3-ASR needs >=4.57.6)
+#   peft/librosa/jiwer/pandas                = 2nd-place requirements.txt
+# jiwer + the board-faithful WER/CER metric live in src/common.py (ported verbatim from mms-ctc-v2).
+#   pip install -r requirements.txt
+
+# --- core DL / trainer ---
+torch==2.9.1
+torchaudio==2.9.1
+transformers>=4.57.6          # Qwen3-ASR support; qwen_asr may tighten this
+accelerate>=0.34.0            # required by HF Trainer / TrainingArguments
+peft==0.18.1                  # LoRA (our add-on to the full-FT 3rd-place scaffold)
+
+# --- Qwen3-ASR wrapper (provides qwen_asr.Qwen3ASRModel used by train_qwen.py / infer_qwen.py) ---
+qwen_asr==0.0.6
+
+# --- data / audio / metrics ---
+safetensors>=0.4            # trained_base.safetensors (encoder-save fix) — usually pulled by transformers
+datasets==3.2.0              # load_from_disk over the prepared arrow chunks
+librosa==0.11.0
+soundfile>=0.12             # librosa I/O backend
+jiwer==4.0.0                # WER/CER in common.per_language_metrics
+numpy>=1.26
+pandas==2.3.3               # manifest join in load_split
+
+# --- inference (infer_qwen.py, Lever 4) ---
+vllm==0.14.0
+
+# --- hub / misc ---
+huggingface_hub>=0.25

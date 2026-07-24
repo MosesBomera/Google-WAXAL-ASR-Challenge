@@ -160,3 +160,5 @@ cython_debug/
 /data
 *.zip
 */*/training-artifacts
+.vscode/
+misc/
